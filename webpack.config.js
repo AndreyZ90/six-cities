@@ -22,7 +22,8 @@ module.exports = {
   devServer: {
     contentBase: publicPath,
     port: 8080,
-    open: true
+    open: true,
+    historyApiFallback: true
   },
   resolve: {
     alias: {
