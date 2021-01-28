@@ -7,7 +7,9 @@ const titlesOffers = [`Beautiful & luxurious apartment at great location`, `Wood
 
 describe(`Component component snapshot`, () => {
   test(`Should correctly render Component component`, () => {
-    const tree = TestRenderer.create(<App titlesOffers={titlesOffers} />).toJSON();
+    const tree = TestRenderer.create(
+        <App titlesOffers={titlesOffers} onTitleClick={() => {}} />
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
