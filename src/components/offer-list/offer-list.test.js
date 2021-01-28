@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 
-import Main from '@/components/main/main';
+import OfferList from '@/components/offer-list/offer-list';
 
 const offers = [
   {
@@ -26,10 +26,14 @@ const offers = [
   }
 ];
 
-describe(`Main component snapshot`, () => {
-  test(`Should correctly render Main component`, () => {
+describe(`OfferList component snapshot`, () => {
+  test(`Should correctly render OfferList component`, () => {
     const tree = TestRenderer.create(
-        <Main offers={offers} onTitleClick={() => {}}/>
+        <OfferList
+          offers={offers}
+          onTitleClick={() => {}}
+          onActiveCardChange={() => {}}
+        />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
