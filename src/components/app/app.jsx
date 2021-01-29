@@ -1,26 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import Main from '@/components/main/main';
+import OfferDetails from '@/components/offer-details/offer-details';
 
 import {HouseType} from '@/helpers/const';
 
 const App = (props) => {
   const {offers, onTitleClick} = props;
 
-  return <Main offers={offers} onTitleClick={onTitleClick} />;
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Main offers={offers} onTitleClick={onTitleClick} />;
+        </Route>
+        <Route exact path="/dev-details">
+          <OfferDetails {...offers[0]}/>
+        </Route>
+      </Switch>
+    </Router>
+  );
 };
 
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
     isFavorite: PropTypes.bool.isRequired,
     isPremium: PropTypes.bool.isRequired,
-    previewImage: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    berdrooms: PropTypes.number.isRequired,
+    maxAdults: PropTypes.number.isRequired,
+    goods: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.shape({
+      avatarUrl: PropTypes.string.isRequired,
+      isPro: PropTypes.bool.isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired,
+    description: PropTypes.string.isRequired
   })).isRequired,
   onTitleClick: PropTypes.func.isRequired
 };
