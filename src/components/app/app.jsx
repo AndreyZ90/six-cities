@@ -14,7 +14,7 @@ const App = (props) => {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Main offers={offers} onTitleClick={onTitleClick} />;
+          <Main offers={offers} onTitleClick={onTitleClick} />
         </Route>
         <Route exact path="/dev-details">
           <OfferDetails {...offers[0]}/>
@@ -41,7 +41,19 @@ App.propTypes = {
       isPro: PropTypes.bool.isRequired,
       name: PropTypes.string.isRequired
     }).isRequired,
-    description: PropTypes.string.isRequired
+    description: PropTypes.string.isRequired,
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired
+    }).isRequired,
+    city: PropTypes.shape({
+      location: PropTypes.shape({
+        latitude: PropTypes.number.isRequired,
+        longitude: PropTypes.number.isRequired,
+        zoom: PropTypes.number.isRequired
+      }).isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired
   })).isRequired,
   onTitleClick: PropTypes.func.isRequired
 };
