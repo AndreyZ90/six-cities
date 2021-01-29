@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InsideItem component snapshot Should correctly render InsideItem component 1`] = `
+<li
+  className="property__inside-item"
+>
+  Wi-Fi
+</li>
+`;
