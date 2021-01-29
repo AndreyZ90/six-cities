@@ -1,7 +1,10 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import leaflet from 'leaflet';
 
 import App from '@/components/app/app';
+
+leaflet.map = () => {};
 
 const offers = [
   {
@@ -23,7 +26,20 @@ const offers = [
       isPro: true,
       name: `Angelina`
     },
-    description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`
+    description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+      zoom: 8
+    },
+    city: {
+      location: {
+        latitude: 52.38333,
+        longitude: 4.9,
+        zoom: 10
+      },
+      name: `Amsterdam`
+    }
   },
   {
     id: 2,
@@ -44,7 +60,20 @@ const offers = [
       isPro: false,
       name: `Nadezhda`
     },
-    description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Moscow.`
+    description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Moscow.`,
+    location: {
+      latitude: 52.369553943508,
+      longitude: 4.85309666406198,
+      zoom: 8
+    },
+    city: {
+      location: {
+        latitude: 52.38333,
+        longitude: 4.9,
+        zoom: 10
+      },
+      name: `Amsterdam`
+    }
   }
 ];
 
