@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inside component snapshot Should correctly render Inside component 1`] = `
+<div
+  className="property__inside"
+>
+  <h2
+    className="property__inside-title"
+  >
+    What's inside
+  </h2>
+  <div
+    className="some-children-node"
+  >
+    Inside children node
+  </div>
+</div>
+`;
