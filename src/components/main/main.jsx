@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
 import OfferList from '@/components/offer-list/offer-list';
+import Map from '@/components/map/map';
 
 import {HouseType} from '@/helpers/const';
 
@@ -22,6 +23,10 @@ export default class Main extends PureComponent {
 
   render() {
     const {offers, onTitleClick} = this.props;
+    const geoCoords = offers.map(({location}) => [location.latitude, location.longitude]);
+    const city = offers[0].city;
+    const cityCoords = [city.location.latitude, city.location.longitude];
+    const zoom = city.location.zoom;
 
     return (
       <div className="page page--gray page--main">
@@ -112,7 +117,11 @@ export default class Main extends PureComponent {
                 />
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map" />
+                <Map
+                  geoCoords={geoCoords}
+                  center={cityCoords}
+                  zoom={zoom}
+                />
               </div>
             </div>
           </div>
@@ -131,7 +140,19 @@ Main.propTypes = {
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(Object.keys(HouseType)).isRequired
+    type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired
+    }).isRequired,
+    city: PropTypes.shape({
+      location: PropTypes.shape({
+        latitude: PropTypes.number.isRequired,
+        longitude: PropTypes.number.isRequired,
+        zoom: PropTypes.number.isRequired
+      }).isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired
   })).isRequired,
   onTitleClick: PropTypes.func.isRequired
 };
