@@ -8,7 +8,7 @@ import OfferDetails from '@/components/offer-details/offer-details';
 import {HouseType} from '@/helpers/const';
 
 const App = (props) => {
-  const {offers, onTitleClick} = props;
+  const {offers, reviews, onTitleClick} = props;
 
   return (
     <Router>
@@ -17,7 +17,7 @@ const App = (props) => {
           <Main offers={offers} onTitleClick={onTitleClick} />
         </Route>
         <Route exact path="/dev-details">
-          <OfferDetails {...offers[0]}/>
+          <OfferDetails {...offers[0]} reviews={reviews} />
         </Route>
       </Switch>
     </Router>
@@ -52,6 +52,18 @@ App.propTypes = {
         longitude: PropTypes.number.isRequired,
         zoom: PropTypes.number.isRequired
       }).isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired
+  })).isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape({
+    comment: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    user: PropTypes.shape({
+      avatarUrl: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      isPro: PropTypes.bool.isRequired,
       name: PropTypes.string.isRequired
     }).isRequired
   })).isRequired,
