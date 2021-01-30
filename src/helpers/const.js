@@ -2,7 +2,8 @@ const ClassPrefix = {
   CARD: `place-card`,
   CITY: `cities`,
   DETAILS: `property`,
-  REVIEWS: `reviews`
+  REVIEWS: `reviews`,
+  NEARBY: `near-places`
 };
 
 const HouseType = {
