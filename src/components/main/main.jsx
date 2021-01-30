@@ -2,9 +2,10 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
 import OfferList from '@/components/offer-list/offer-list';
-import Map from '@/components/map/map';
+import MapCities from '@/components/map-cities/map-cities';
 
 import {HouseType} from '@/helpers/const';
+import {getGeoCoords} from '@/helpers/common';
 
 export default class Main extends PureComponent {
   constructor(props) {
@@ -23,10 +24,10 @@ export default class Main extends PureComponent {
 
   render() {
     const {offers, onTitleClick} = this.props;
-    const geoCoords = offers.map(({location}) => [location.latitude, location.longitude]);
-    const city = offers[0].city;
-    const cityCoords = [city.location.latitude, city.location.longitude];
-    const zoom = city.location.zoom;
+
+    const geoCoords = getGeoCoords(offers);
+    const cityCoords = getGeoCoords(offers[0].city);
+    const zoom = offers[0].city.location.zoom;
 
     return (
       <div className="page page--gray page--main">
@@ -117,7 +118,7 @@ export default class Main extends PureComponent {
                 />
               </section>
               <div className="cities__right-section">
-                <Map
+                <MapCities
                   geoCoords={geoCoords}
                   center={cityCoords}
                   zoom={zoom}
