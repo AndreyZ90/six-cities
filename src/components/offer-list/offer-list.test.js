@@ -3,6 +3,8 @@ import TestRenderer from 'react-test-renderer';
 
 import OfferList from '@/components/offer-list/offer-list';
 
+import {ClassPrefix} from '@/helpers/const';
+
 const offers = [
   {
     id: 1,
@@ -27,10 +29,34 @@ const offers = [
 ];
 
 describe(`OfferList component snapshot`, () => {
-  test(`Should correctly render OfferList component`, () => {
+  test(`Should correctly render OfferList component (default)`, () => {
     const tree = TestRenderer.create(
         <OfferList
           offers={offers}
+          onTitleClick={() => {}}
+          onActiveCardChange={() => {}}
+        />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test(`Should correctly render OfferList component (with prefix CITY)`, () => {
+    const tree = TestRenderer.create(
+        <OfferList
+          offers={offers}
+          classPrefix={ClassPrefix.CITY}
+          onTitleClick={() => {}}
+          onActiveCardChange={() => {}}
+        />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test(`Should correctly render OfferList component (with prefix NEARBY)`, () => {
+    const tree = TestRenderer.create(
+        <OfferList
+          offers={offers}
+          classPrefix={ClassPrefix.NEARBY}
           onTitleClick={() => {}}
           onActiveCardChange={() => {}}
         />

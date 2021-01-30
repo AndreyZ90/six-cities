@@ -2,24 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import OfferCard from '@/components/offer-card/offer-card';
+import OfferCardCities from '@/components/offer-card-cities/offer-card-cities';
+import OfferCardNearby from '@/components/offer-card-nearby/offer-card-nearby';
 
-import {HouseType} from '@/helpers/const';
+import {ClassPrefix, HouseType} from '@/helpers/const';
+
+const getOfferByPrefix = (prefix, props) => {
+  switch (prefix) {
+    case ClassPrefix.CITY:
+      return <OfferCardCities {...props} />;
+    case ClassPrefix.NEARBY:
+      return <OfferCardNearby {...props} />;
+    default:
+      return <OfferCard {...props} />;
+  }
+};
 
 const OfferList = (props) => {
-  const {offers, onTitleClick, onActiveCardChange} = props;
+  const {offers, onTitleClick, onActiveCardChange, className, classPrefix} = props;
 
   return (
-    <div className="cities__places-list places__list tabs__content">
-      {offers.map((offer) => (
-        <OfferCard
-          key={offer.id}
-          onTitleClick={onTitleClick}
-          onActiveCardChange={onActiveCardChange}
-          {...offer}
-        />
-      ))}
+    <div className={`${className} places__list`}>
+      {offers.map((offer) => getOfferByPrefix(classPrefix, {
+        key: offer.id,
+        offer,
+        onTitleClick,
+        onActiveCardChange
+      }))}
     </div>
   );
+};
+
+OfferList.defaultProps = {
+  className: ``
 };
 
 OfferList.propTypes = {
@@ -34,7 +49,9 @@ OfferList.propTypes = {
     type: PropTypes.oneOf(Object.keys(HouseType)).isRequired
   })).isRequired,
   onTitleClick: PropTypes.func.isRequired,
-  onActiveCardChange: PropTypes.func.isRequired
+  onActiveCardChange: PropTypes.func,
+  className: PropTypes.string,
+  classPrefix: PropTypes.oneOf(Object.values(ClassPrefix))
 };
 
 export default OfferList;
