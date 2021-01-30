@@ -9,27 +9,32 @@ import Review from '@/components/review/review';
 import ReviewList from '@/components/review-list/review-list';
 import ReviewForm from '@/components/review-form/review-form';
 import MapDetails from '@/components/map-details/map-details';
+import Nearby from '@/components/nearby/nearby';
+import OfferListNearby from '@/components/offer-list-nearby/offer-list-nearby';
 
 import {HouseType} from '@/helpers/const';
 import {convertRatingToStyle, getGeoCoords} from '@/helpers/common';
 
 const OfferDetails = (props) => {
   const {
-    isFavorite,
-    isPremium,
-    price,
-    rating,
-    title,
-    type,
-    images,
-    berdrooms,
-    maxAdults,
-    goods,
-    host,
-    description,
-    city,
+    offer: {
+      isFavorite,
+      isPremium,
+      price,
+      rating,
+      title,
+      type,
+      images,
+      berdrooms,
+      maxAdults,
+      goods,
+      host,
+      description,
+      city
+    },
     reviews,
     nearby,
+    onTitleClick
   } = props;
 
   const activeClass = isFavorite ? `property__bookmark-button--active` : ``;
@@ -120,34 +125,41 @@ const OfferDetails = (props) => {
             zoom={zoom}
           />
         </section>
+        <div className="container">
+          <Nearby>
+            <OfferListNearby offers={nearby} onTitleClick={onTitleClick} />
+          </Nearby>
+        </div>
       </main>
     </div>
   );
 };
 
 OfferDetails.propTypes = {
-  isFavorite: PropTypes.bool.isRequired,
-  isPremium: PropTypes.bool.isRequired,
-  price: PropTypes.number.isRequired,
-  rating: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
-  berdrooms: PropTypes.number.isRequired,
-  maxAdults: PropTypes.number.isRequired,
-  goods: PropTypes.arrayOf(PropTypes.string).isRequired,
-  host: PropTypes.shape({
-    avatarUrl: PropTypes.string.isRequired,
-    isPro: PropTypes.bool.isRequired,
-    name: PropTypes.string.isRequired
-  }).isRequired,
-  description: PropTypes.string.isRequired,
-  city: PropTypes.shape({
-    location: PropTypes.shape({
-      latitude: PropTypes.number.isRequired,
-      longitude: PropTypes.number.isRequired,
-      zoom: PropTypes.number.isRequired
-    }).isRequired
+  offer: PropTypes.shape({
+    isFavorite: PropTypes.bool.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    berdrooms: PropTypes.number.isRequired,
+    maxAdults: PropTypes.number.isRequired,
+    goods: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.shape({
+      avatarUrl: PropTypes.string.isRequired,
+      isPro: PropTypes.bool.isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired,
+    description: PropTypes.string.isRequired,
+    city: PropTypes.shape({
+      location: PropTypes.shape({
+        latitude: PropTypes.number.isRequired,
+        longitude: PropTypes.number.isRequired,
+        zoom: PropTypes.number.isRequired
+      }).isRequired
+    }).isRequired,
   }).isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape({
     comment: PropTypes.string.isRequired,
@@ -176,6 +188,7 @@ OfferDetails.propTypes = {
       zoom: PropTypes.number.isRequired
     }).isRequired,
   })).isRequired,
+  onTitleClick: PropTypes.func.isRequired
 };
 
 export default OfferDetails;

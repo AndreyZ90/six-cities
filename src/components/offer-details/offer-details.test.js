@@ -138,9 +138,10 @@ describe(`OfferDetails component snapshot`, () => {
   test(`Should correctly render OfferDetails component`, () => {
     const tree = TestRenderer.create(
         <OfferDetails
+          offer={offer}
           reviews={reviews}
           nearby={nearby}
-          {...offer}
+          onTitleClick={() => {}}
         />
     ).toJSON();
     expect(tree).toMatchSnapshot();
