@@ -8,7 +8,7 @@ import OfferDetails from '@/components/offer-details/offer-details';
 import {HouseType} from '@/helpers/const';
 
 const App = (props) => {
-  const {offers, reviews, onTitleClick} = props;
+  const {offers, reviews, nearby, onTitleClick} = props;
 
   return (
     <Router>
@@ -17,7 +17,11 @@ const App = (props) => {
           <Main offers={offers} onTitleClick={onTitleClick} />
         </Route>
         <Route exact path="/dev-details">
-          <OfferDetails {...offers[0]} reviews={reviews} />
+          <OfferDetails
+            reviews={reviews}
+            nearby={nearby}
+            {...offers[0]}
+          />
         </Route>
       </Switch>
     </Router>
@@ -65,6 +69,21 @@ App.propTypes = {
       id: PropTypes.number.isRequired,
       isPro: PropTypes.bool.isRequired,
       name: PropTypes.string.isRequired
+    }).isRequired
+  })).isRequired,
+  nearby: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    previewImage: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired
     }).isRequired
   })).isRequired,
   onTitleClick: PropTypes.func.isRequired
