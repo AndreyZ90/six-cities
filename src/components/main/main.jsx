@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
-import OfferList from '@/components/offer-list/offer-list';
+import OfferListCities from '@/components/offer-list-cities/offer-list-cities';
 import MapCities from '@/components/map-cities/map-cities';
 
 import {HouseType} from '@/helpers/const';
@@ -111,7 +111,7 @@ export default class Main extends PureComponent {
                     <li className="places__option" tabIndex={0}>Top rated first</li>
                   </ul>
                 </form>
-                <OfferList
+                <OfferListCities
                   offers={offers}
                   onTitleClick={onTitleClick}
                   onActiveCardChange={this._handleActiveCardChange}
