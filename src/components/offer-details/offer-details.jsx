@@ -5,6 +5,9 @@ import Gallery from '@/components/gallery/gallery';
 import Inside from '@/components/inside/inside';
 import InsideList from '@/components/inside-list/inside-list';
 import Host from '@/components/host/host';
+import Review from '@/components/review/review';
+import ReviewList from '@/components/review-list/review-list';
+import ReviewForm from '@/components/review-form/review-form';
 
 import {HouseType} from '@/helpers/const';
 import {convertRatingToStyle} from '@/helpers/common';
@@ -22,7 +25,8 @@ const OfferDetails = (props) => {
     maxAdults,
     goods,
     host,
-    description
+    description,
+    reviews
   } = props;
 
   const activeClass = isFavorite ? `property__bookmark-button--active` : ``;
@@ -98,6 +102,10 @@ const OfferDetails = (props) => {
                 <InsideList goods={goods} />
               </Inside>
               <Host host={host} description={description} />
+              <Review count={reviews.length}>
+                <ReviewList reviews={reviews} />
+                <ReviewForm />
+              </Review>
             </div>
           </div>
         </section>
@@ -122,6 +130,18 @@ OfferDetails.propTypes = {
     isPro: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired
   }).isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape({
+    comment: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    user: PropTypes.shape({
+      avatarUrl: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      isPro: PropTypes.bool.isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired
+  })).isRequired,
   description: PropTypes.string.isRequired
 };
 
