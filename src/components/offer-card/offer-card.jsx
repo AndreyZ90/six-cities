@@ -6,22 +6,25 @@ import {convertRatingToStyle} from '@/helpers/common';
 
 const OfferCard = (props) => {
   const {
-    id,
-    isFavorite,
-    isPremium,
-    previewImage,
-    price,
-    rating,
-    title,
-    type,
+    offer: {
+      id,
+      isFavorite,
+      isPremium,
+      previewImage,
+      price,
+      rating,
+      title,
+      type,
+    },
+    className,
     onTitleClick,
-    onActiveCardChange
+    onActiveCardChange,
   } = props;
 
   const activeClass = isFavorite ? `place-card__bookmark-button--active` : ``;
 
   return (
-    <article className="cities__place-card place-card"
+    <article className={`${className} place-card`}
       onMouseEnter={() => onActiveCardChange(id)}
       onMouseLeave={() => onActiveCardChange(-1)}
     >
@@ -30,7 +33,7 @@ const OfferCard = (props) => {
         <span>Premium</span>
       </div>
       }
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className="place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src={`/${previewImage}`} width={260} height={200} alt="Place image" />
         </a>
@@ -63,17 +66,25 @@ const OfferCard = (props) => {
   );
 };
 
+OfferCard.defaultProps = {
+  onActiveCardChange: () => {},
+  className: ``
+};
+
 OfferCard.propTypes = {
-  id: PropTypes.number.isRequired,
-  isFavorite: PropTypes.bool.isRequired,
-  isPremium: PropTypes.bool.isRequired,
-  previewImage: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  rating: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
+  offer: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    previewImage: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
+  }).isRequired,
   onTitleClick: PropTypes.func.isRequired,
-  onActiveCardChange: PropTypes.func.isRequired
+  className: PropTypes.string,
+  onActiveCardChange: PropTypes.func,
 };
 
 export default OfferCard;

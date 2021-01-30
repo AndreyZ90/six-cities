@@ -25,9 +25,9 @@ describe(`OfferCard e2e test`, () => {
 
     const offerCardComponent = shallow(
         <OfferCard
+          offer={offer}
           onTitleClick={(onTitleClick)}
           onActiveCardChange={() => {}}
-          {...offer}
         />
     );
     const title = offerCardComponent.find(`.place-card__name`).at(0);
@@ -42,9 +42,9 @@ describe(`OfferCard e2e test`, () => {
 
     const offerCardComponent = shallow(
         <OfferCard
+          offer={offer}
           onTitleClick={() => {}}
           onActiveCardChange={onActiveCardChange}
-          {...offer}
         />
     );
 
@@ -58,9 +58,9 @@ describe(`OfferCard e2e test`, () => {
 
     const offerCardComponent = shallow(
         <OfferCard
+          offer={offer}
           onTitleClick={() => {}}
           onActiveCardChange={onActiveCardChange}
-          {...offer}
         />
     );
 
