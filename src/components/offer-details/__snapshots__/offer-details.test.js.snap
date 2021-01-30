@@ -590,6 +590,9 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
           </section>
         </div>
       </div>
+      <section
+        className="property__map map"
+      />
     </section>
   </main>
 </div>

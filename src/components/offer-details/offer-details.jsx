@@ -8,9 +8,10 @@ import Host from '@/components/host/host';
 import Review from '@/components/review/review';
 import ReviewList from '@/components/review-list/review-list';
 import ReviewForm from '@/components/review-form/review-form';
+import MapDetails from '@/components/map-details/map-details';
 
 import {HouseType} from '@/helpers/const';
-import {convertRatingToStyle} from '@/helpers/common';
+import {convertRatingToStyle, getGeoCoords} from '@/helpers/common';
 
 const OfferDetails = (props) => {
   const {
@@ -26,10 +27,15 @@ const OfferDetails = (props) => {
     goods,
     host,
     description,
-    reviews
+    city,
+    reviews,
+    nearby,
   } = props;
 
   const activeClass = isFavorite ? `property__bookmark-button--active` : ``;
+  const geoCoords = getGeoCoords(nearby);
+  const cityCoords = getGeoCoords(city);
+  const zoom = city.location.zoom;
 
   return (
     <div className="page">
@@ -108,6 +114,11 @@ const OfferDetails = (props) => {
               </Review>
             </div>
           </div>
+          <MapDetails
+            geoCoords={geoCoords}
+            center={cityCoords}
+            zoom={zoom}
+          />
         </section>
       </main>
     </div>
@@ -130,6 +141,14 @@ OfferDetails.propTypes = {
     isPro: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired
   }).isRequired,
+  description: PropTypes.string.isRequired,
+  city: PropTypes.shape({
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired
+    }).isRequired
+  }).isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape({
     comment: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
@@ -142,7 +161,21 @@ OfferDetails.propTypes = {
       name: PropTypes.string.isRequired
     }).isRequired
   })).isRequired,
-  description: PropTypes.string.isRequired
+  nearby: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    previewImage: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired
+    }).isRequired,
+  })).isRequired,
 };
 
 export default OfferDetails;
