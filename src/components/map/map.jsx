@@ -2,7 +2,7 @@ import React, {createRef, PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import leaflet, {layerGroup} from 'leaflet';
 
-import {MapPin} from '@/helpers/const';
+import {ClassPrefix, MapPin} from '@/helpers/const';
 
 export default class Map extends PureComponent {
   constructor(props) {
@@ -11,7 +11,6 @@ export default class Map extends PureComponent {
     this._mapRef = createRef();
     this._leaflet = null;
     this._icon = null;
-
     this._titleLayer = null;
     this._markersLayers = null;
   }
@@ -36,12 +35,19 @@ export default class Map extends PureComponent {
   }
 
   render() {
-    return <section className="cities__map map" ref={this._mapRef} />;
+    const {classPrefix} = this.props;
+
+    return <section className={`${classPrefix}__map map`} ref={this._mapRef}></section>;
   }
 }
+
+Map.defaultProps = {
+  classPrefix: ClassPrefix.CITY
+};
 
 Map.propTypes = {
   geoCoords: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
   center: PropTypes.arrayOf(PropTypes.number).isRequired,
-  zoom: PropTypes.number.isRequired
+  zoom: PropTypes.number.isRequired,
+  classPrefix: PropTypes.oneOf(Object.values(ClassPrefix))
 };

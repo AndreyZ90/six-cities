@@ -1,7 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Map component snapshot Should correctly render Map component 1`] = `
+exports[`Map component snapshot Should correctly render Map component (default) 1`] = `
 <section
   className="cities__map map"
+/>
+`;
+
+exports[`Map component snapshot Should correctly render Map component (with prefix CITY) 1`] = `
+<section
+  className="cities__map map"
+/>
+`;
+
+exports[`Map component snapshot Should correctly render Map component (with prefix DETAILS) 1`] = `
+<section
+  className="property__map map"
 />
 `;
