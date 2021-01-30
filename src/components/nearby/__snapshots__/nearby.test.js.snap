@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nearby component snapshot Should correctly render Nearby component 1`] = `
+<section
+  className="near-places places"
+>
+  <h2
+    className="near-places__title"
+  >
+    Other places in the neighbourhood
+  </h2>
+  <div
+    className="some-children-node"
+  >
+    Nearby children node
+  </div>
+</section>
+`;
