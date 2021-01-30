@@ -18,9 +18,10 @@ const App = (props) => {
         </Route>
         <Route exact path="/dev-details">
           <OfferDetails
+            offer={offers[0]}
             reviews={reviews}
             nearby={nearby}
-            {...offers[0]}
+            onTitleClick={onTitleClick}
           />
         </Route>
       </Switch>

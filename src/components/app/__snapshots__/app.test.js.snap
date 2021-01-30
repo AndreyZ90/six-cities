@@ -222,7 +222,7 @@ exports[`App component snapshot Should correctly render App component 1`] = `
             </ul>
           </form>
           <div
-            className="cities__places-list places__list tabs__content"
+            className="tabs__content cities__places-list places__list"
           >
             <article
               className="cities__place-card place-card"
@@ -237,7 +237,7 @@ exports[`App component snapshot Should correctly render App component 1`] = `
                 </span>
               </div>
               <div
-                className="cities__image-wrapper place-card__image-wrapper"
+                className="place-card__image-wrapper"
               >
                 <a
                   href="#"
@@ -335,7 +335,7 @@ exports[`App component snapshot Should correctly render App component 1`] = `
               onMouseLeave={[Function]}
             >
               <div
-                className="cities__image-wrapper place-card__image-wrapper"
+                className="place-card__image-wrapper"
               >
                 <a
                   href="#"
