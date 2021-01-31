@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import {convertRatingToStyle} from '@/helpers/common';
+import RatingReviews from '@/components/rating-reviews/rating-reviews';
 
 const ReviewItem = (props) => {
   const {
@@ -29,12 +29,7 @@ const ReviewItem = (props) => {
         </span>
       </div>
       <div className="reviews__info">
-        <div className="reviews__rating rating">
-          <div className="reviews__stars rating__stars">
-            <span style={{width: `${convertRatingToStyle(rating)}%`}} />
-            <span className="visually-hidden">Rating</span>
-          </div>
-        </div>
+        <RatingReviews rating={rating} />
         <p className="reviews__text">
           {comment}
         </p>
