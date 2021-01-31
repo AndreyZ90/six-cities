@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreviewImage component snapshot Should correctly render PreviewImage component 1`] = `
+<div
+  className="place-card__image-wrapper"
+>
+  <a>
+    <img
+      alt="Place image"
+      className="place-card__image"
+      height={200}
+      src="/img/image.jpg"
+      width={260}
+    />
+  </a>
+</div>
+`;
