@@ -38,7 +38,7 @@ App.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
-    berdrooms: PropTypes.number.isRequired,
+    bedrooms: PropTypes.number.isRequired,
     maxAdults: PropTypes.number.isRequired,
     goods: PropTypes.arrayOf(PropTypes.string).isRequired,
     host: PropTypes.shape({
