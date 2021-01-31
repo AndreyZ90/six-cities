@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Price component snapshot Should correctly render Price component (default) 1`] = `
+<div
+  className="place-card__price"
+>
+  <b
+    className="place-card__price-value"
+  >
+    €
+    300
+  </b>
+  <span
+    className="place-card__price-text"
+  >
+     / night
+  </span>
+</div>
+`;
+
+exports[`Price component snapshot Should correctly render Price component (with prefix CARD) 1`] = `
+<div
+  className="place-card__price"
+>
+  <b
+    className="place-card__price-value"
+  >
+    €
+    300
+  </b>
+  <span
+    className="place-card__price-text"
+  >
+     / night
+  </span>
+</div>
+`;
+
+exports[`Price component snapshot Should correctly render Price component (with prefix DETAILS) 1`] = `
+<div
+  className="property__price"
+>
+  <b
+    className="property__price-value"
+  >
+    €
+    300
+  </b>
+  <span
+    className="property__price-text"
+  >
+      night
+  </span>
+</div>
+`;
