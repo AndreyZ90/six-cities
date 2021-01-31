@@ -16,9 +16,7 @@ exports[`OfferCardNearby component snapshot Should correctly render OfferCardNea
   <div
     className="place-card__image-wrapper"
   >
-    <a
-      href="#"
-    >
+    <a>
       <img
         alt="Place image"
         className="place-card__image"
@@ -46,7 +44,7 @@ exports[`OfferCardNearby component snapshot Should correctly render OfferCardNea
         <span
           className="place-card__price-text"
         >
-          / night
+           / night
         </span>
       </div>
       <button
