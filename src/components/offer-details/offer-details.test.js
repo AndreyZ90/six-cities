@@ -16,7 +16,7 @@ const offer = {
   title: `Beautiful & luxurious studio at great location`,
   type: `apartment`,
   images: [`img/apartment-01.jpg`, `img/apartment-02.jpg`, `img/apartment-03.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`, `img/room.jpg`],
-  berdrooms: 3,
+  bedrooms: 3,
   maxAdults: 6,
   goods: [`Heating`, `Kitchen`, `Cable TV`],
   host: {
@@ -74,7 +74,7 @@ const nearby = [
     title: `Wood and stone place`,
     type: `room`,
     images: [`img/apartment-03.jpg`, `img/apartment-02.jpg`, `img/apartment-01.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`, `img/room.jpg`],
-    berdrooms: 1,
+    bedrooms: 1,
     maxAdults: 2,
     goods: [`Washing machine`, `Coffee machine`, `Dishwasher`],
     host: {
@@ -108,7 +108,7 @@ const nearby = [
     title: `Canal View Prinsengracht`,
     type: `house`,
     images: [`img/apartment-02.jpg`, `img/apartment-01.jpg`, `img/room.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`, `img/apartment-03.jpg`],
-    berdrooms: 2,
+    bedrooms: 2,
     maxAdults: 5,
     goods: [`Heating`, `Kitchen`, `Cable TV`, `Washing machine`, `Coffee machine`, `Dishwasher`],
     host: {

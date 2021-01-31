@@ -222,7 +222,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             <span
               className="property__price-text"
             >
-               night
+                night
             </span>
           </div>
           <div
@@ -616,9 +616,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             <div
               className="place-card__image-wrapper"
             >
-              <a
-                href="#"
-              >
+              <a>
                 <img
                   alt="Place image"
                   className="place-card__image"
@@ -646,7 +644,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
                   <span
                     className="place-card__price-text"
                   >
-                    / night
+                     / night
                   </span>
                 </div>
                 <button
@@ -721,9 +719,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             <div
               className="place-card__image-wrapper"
             >
-              <a
-                href="#"
-              >
+              <a>
                 <img
                   alt="Place image"
                   className="place-card__image"
@@ -751,7 +747,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
                   <span
                     className="place-card__price-text"
                   >
-                    / night
+                     / night
                   </span>
                 </div>
                 <button

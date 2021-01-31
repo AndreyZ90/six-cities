@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Gallery from '@/components/gallery/gallery';
+import PremiumMarkDetails from '@/components/premium-mark-details/premium-mark-details';
+import BookmarkButtonDetails from '@/components/bookmark-button-details/bookmark-button-details';
+import RatingDetails from '@/components/rating-details/rating-details';
+import FeatureList from '@/components/feature-list/feature-list';
+import PriceDetails from '@/components/price-details/price-details';
 import Inside from '@/components/inside/inside';
 import InsideList from '@/components/inside-list/inside-list';
 import Host from '@/components/host/host';
@@ -13,7 +18,8 @@ import Nearby from '@/components/nearby/nearby';
 import OfferListNearby from '@/components/offer-list-nearby/offer-list-nearby';
 
 import {HouseType} from '@/helpers/const';
-import {convertRatingToStyle, getGeoCoords} from '@/helpers/common';
+import {getGeoCoords} from '@/helpers/common';
+
 
 const OfferDetails = (props) => {
   const {
@@ -25,7 +31,7 @@ const OfferDetails = (props) => {
       title,
       type,
       images,
-      berdrooms,
+      bedrooms,
       maxAdults,
       goods,
       host,
@@ -37,7 +43,6 @@ const OfferDetails = (props) => {
     onTitleClick
   } = props;
 
-  const activeClass = isFavorite ? `property__bookmark-button--active` : ``;
   const geoCoords = getGeoCoords(nearby);
   const cityCoords = getGeoCoords(city);
   const zoom = city.location.zoom;
@@ -71,44 +76,20 @@ const OfferDetails = (props) => {
           <Gallery images={images} />
           <div className="property__container container">
             <div className="property__wrapper">
-              {isPremium &&
-                <div className="property__mark">
-                  <span>Premium</span>
-                </div>
-              }
+              {isPremium && <PremiumMarkDetails />}
               <div className="property__name-wrapper">
                 <h1 className="property__name">
                   {title}
                 </h1>
-                <button className={`property__bookmark-button button ${activeClass}`} type="button">
-                  <svg className="property__bookmark-icon" width={31} height={33}>
-                    <use xlinkHref="#icon-bookmark" />
-                  </svg>
-                  <span className="visually-hidden">To bookmarks</span>
-                </button>
+                <BookmarkButtonDetails isActive={isFavorite} />
               </div>
-              <div className="property__rating rating">
-                <div className="property__stars rating__stars">
-                  <span style={{width: `${convertRatingToStyle(rating)}%`}} />
-                  <span className="visually-hidden">Rating</span>
-                </div>
-                <span className="property__rating-value rating__value">{rating}</span>
-              </div>
-              <ul className="property__features">
-                <li className="property__feature property__feature--entire">
-                  {HouseType[type]}
-                </li>
-                <li className="property__feature property__feature--bedrooms">
-                  {`${berdrooms} Bedrooms`}
-                </li>
-                <li className="property__feature property__feature--adults">
-                  {`Max ${maxAdults} adults`}
-                </li>
-              </ul>
-              <div className="property__price">
-                <b className="property__price-value">€{price}</b>
-                <span className="property__price-text">&nbsp;night</span>
-              </div>
+              <RatingDetails rating={rating} />
+              <FeatureList
+                type={type}
+                bedrooms={bedrooms}
+                maxAdults={maxAdults}
+              />
+              <PriceDetails price={price} />
               <Inside>
                 <InsideList goods={goods} />
               </Inside>
@@ -144,7 +125,7 @@ OfferDetails.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
-    berdrooms: PropTypes.number.isRequired,
+    bedrooms: PropTypes.number.isRequired,
     maxAdults: PropTypes.number.isRequired,
     goods: PropTypes.arrayOf(PropTypes.string).isRequired,
     host: PropTypes.shape({
