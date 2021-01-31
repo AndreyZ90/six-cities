@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PriceDetails component snapshot Should correctly render PriceDetails component 1`] = `
+<div
+  className="property__price"
+>
+  <b
+    className="property__price-value"
+  >
+    €
+    300
+  </b>
+  <span
+    className="property__price-text"
+  >
+      night
+  </span>
+</div>
+`;
