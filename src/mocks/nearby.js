@@ -9,7 +9,7 @@ export default [
     title: `Wood and stone place`,
     type: `room`,
     images: [`img/apartment-03.jpg`, `img/apartment-02.jpg`, `img/apartment-01.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`, `img/room.jpg`],
-    berdrooms: 1,
+    bedrooms: 1,
     maxAdults: 2,
     goods: [`Washing machine`, `Coffee machine`, `Dishwasher`],
     host: {
@@ -43,7 +43,7 @@ export default [
     title: `Canal View Prinsengracht`,
     type: `house`,
     images: [`img/apartment-02.jpg`, `img/apartment-01.jpg`, `img/room.jpg`, `img/studio-01.jpg`, `img/apartment-01.jpg`, `img/apartment-03.jpg`],
-    berdrooms: 2,
+    bedrooms: 2,
     maxAdults: 5,
     goods: [`Heating`, `Kitchen`, `Cable TV`, `Washing machine`, `Coffee machine`, `Dishwasher`],
     host: {
@@ -77,7 +77,7 @@ export default [
     title: `Nice, cozy, warm big bed apartment`,
     type: `hotel`,
     images: [`img/apartment-01.jpg`, `img/room.jpg`, `img/studio-01.jpg`, `img/apartment-03.jpg`, `img/apartment-01.jpg`, `img/apartment-02.jpg`],
-    berdrooms: 2,
+    bedrooms: 2,
     maxAdults: 2,
     goods: [`Kitchen`, `Washing machine`],
     host: {
