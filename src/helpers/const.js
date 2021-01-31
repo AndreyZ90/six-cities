@@ -1,3 +1,11 @@
+const ClassPrefix = {
+  CARD: `place-card`,
+  CITY: `cities`,
+  DETAILS: `property`,
+  REVIEWS: `reviews`,
+  NEARBY: `near-places`
+};
+
 const HouseType = {
   apartment: `Apartment`,
   room: `Private Room`,
@@ -15,4 +23,9 @@ const MapPinActive = {
   size: [30, 40]
 };
 
-export {HouseType, MapPin, MapPinActive};
+export {
+  ClassPrefix,
+  HouseType,
+  MapPin,
+  MapPinActive
+};

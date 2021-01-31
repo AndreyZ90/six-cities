@@ -1,10 +1,11 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
-import OfferList from '@/components/offer-list/offer-list';
-import Map from '@/components/map/map';
+import OfferListCities from '@/components/offer-list-cities/offer-list-cities';
+import MapCities from '@/components/map-cities/map-cities';
 
 import {HouseType} from '@/helpers/const';
+import {getGeoCoords} from '@/helpers/common';
 
 export default class Main extends PureComponent {
   constructor(props) {
@@ -23,10 +24,10 @@ export default class Main extends PureComponent {
 
   render() {
     const {offers, onTitleClick} = this.props;
-    const geoCoords = offers.map(({location}) => [location.latitude, location.longitude]);
-    const city = offers[0].city;
-    const cityCoords = [city.location.latitude, city.location.longitude];
-    const zoom = city.location.zoom;
+
+    const geoCoords = getGeoCoords(offers);
+    const cityCoords = getGeoCoords(offers[0].city);
+    const zoom = offers[0].city.location.zoom;
 
     return (
       <div className="page page--gray page--main">
@@ -110,14 +111,14 @@ export default class Main extends PureComponent {
                     <li className="places__option" tabIndex={0}>Top rated first</li>
                   </ul>
                 </form>
-                <OfferList
+                <OfferListCities
                   offers={offers}
                   onTitleClick={onTitleClick}
                   onActiveCardChange={this._handleActiveCardChange}
                 />
               </section>
               <div className="cities__right-section">
-                <Map
+                <MapCities
                   geoCoords={geoCoords}
                   center={cityCoords}
                   zoom={zoom}

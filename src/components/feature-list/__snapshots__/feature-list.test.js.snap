@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeatureList component snapshot Should correctly render FeatureList component (type: apartament) 1`] = `
+<ul
+  className="property__features"
+>
+  <li
+    className="property__feature property__feature--entire"
+  >
+    Apartment
+  </li>
+  <li
+    className="property__feature property__feature--bedrooms"
+  >
+    3 Bedrooms
+  </li>
+  <li
+    className="property__feature property__feature--adults"
+  >
+    Max 5 adults
+  </li>
+</ul>
+`;
+
+exports[`FeatureList component snapshot Should correctly render FeatureList component (type: apartament) 2`] = `
+<ul
+  className="property__features"
+>
+  <li
+    className="property__feature property__feature--entire"
+  >
+    Private Room
+  </li>
+  <li
+    className="property__feature property__feature--bedrooms"
+  >
+    3 Bedrooms
+  </li>
+  <li
+    className="property__feature property__feature--adults"
+  >
+    Max 5 adults
+  </li>
+</ul>
+`;
+
+exports[`FeatureList component snapshot Should correctly render FeatureList component (type: hotel) 1`] = `
+<ul
+  className="property__features"
+>
+  <li
+    className="property__feature property__feature--entire"
+  >
+    Hotel
+  </li>
+  <li
+    className="property__feature property__feature--bedrooms"
+  >
+    3 Bedrooms
+  </li>
+  <li
+    className="property__feature property__feature--adults"
+  >
+    Max 5 adults
+  </li>
+</ul>
+`;
+
+exports[`FeatureList component snapshot Should correctly render FeatureList component (type: house) 1`] = `
+<ul
+  className="property__features"
+>
+  <li
+    className="property__feature property__feature--entire"
+  >
+    House
+  </li>
+  <li
+    className="property__feature property__feature--bedrooms"
+  >
+    3 Bedrooms
+  </li>
+  <li
+    className="property__feature property__feature--adults"
+  >
+    Max 5 adults
+  </li>
+</ul>
+`;

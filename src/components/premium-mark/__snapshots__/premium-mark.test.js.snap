@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PremiumMark component snapshot Should correctly render PremiumMark component (default) 1`] = `
+<div
+  className="place-card__mark"
+>
+  <span>
+    Premium
+  </span>
+</div>
+`;
+
+exports[`PremiumMark component snapshot Should correctly render PremiumMark component (with prefix CARD) 1`] = `
+<div
+  className="place-card__mark"
+>
+  <span>
+    Premium
+  </span>
+</div>
+`;
+
+exports[`PremiumMark component snapshot Should correctly render PremiumMark component (with prefix DETAILS) 1`] = `
+<div
+  className="property__mark"
+>
+  <span>
+    Premium
+  </span>
+</div>
+`;

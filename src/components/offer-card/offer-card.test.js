@@ -18,9 +18,9 @@ describe(`OfferCard component snapshot`, () => {
   test(`Should correctly render OfferCard component`, () => {
     const tree = TestRenderer.create(
         <OfferCard
+          offer={offer}
           onTitleClick={() => {}}
           onActiveCardChange={() => {}}
-          {...offer}
         />
     ).toJSON();
     expect(tree).toMatchSnapshot();

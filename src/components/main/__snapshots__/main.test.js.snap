@@ -222,7 +222,7 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
             </ul>
           </form>
           <div
-            className="cities__places-list places__list tabs__content"
+            className="tabs__content cities__places-list places__list"
           >
             <article
               className="cities__place-card place-card"
@@ -237,11 +237,9 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
                 </span>
               </div>
               <div
-                className="cities__image-wrapper place-card__image-wrapper"
+                className="place-card__image-wrapper"
               >
-                <a
-                  href="#"
-                >
+                <a>
                   <img
                     alt="Place image"
                     className="place-card__image"
@@ -269,7 +267,7 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
                     <span
                       className="place-card__price-text"
                     >
-                      / night
+                       / night
                     </span>
                   </div>
                   <button
@@ -335,11 +333,9 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
               onMouseLeave={[Function]}
             >
               <div
-                className="cities__image-wrapper place-card__image-wrapper"
+                className="place-card__image-wrapper"
               >
-                <a
-                  href="#"
-                >
+                <a>
                   <img
                     alt="Place image"
                     className="place-card__image"
@@ -367,7 +363,7 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
                     <span
                       className="place-card__price-text"
                     >
-                      / night
+                       / night
                     </span>
                   </div>
                   <button
