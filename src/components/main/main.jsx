@@ -1,13 +1,17 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
+import CityList from '@/components/city-list/city-list';
 import OfferListCities from '@/components/offer-list-cities/offer-list-cities';
 import MapCities from '@/components/map-cities/map-cities';
+
+import {changeCurrentCity} from '@/actions/action-creator';
 
 import {HouseType} from '@/helpers/const';
 import {getGeoCoords} from '@/helpers/common';
 
-export default class Main extends PureComponent {
+class Main extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -23,7 +27,7 @@ export default class Main extends PureComponent {
   }
 
   render() {
-    const {offers, onTitleClick} = this.props;
+    const {offers, cities, currentCity, onTitleClick, onCurrentCityChange} = this.props;
 
     const geoCoords = getGeoCoords(offers);
     const cityCoords = getGeoCoords(offers[0].city);
@@ -55,42 +59,7 @@ export default class Main extends PureComponent {
         </header>
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
-          <div className="tabs">
-            <section className="locations container">
-              <ul className="locations__list tabs__list">
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Paris</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Cologne</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Brussels</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active">
-                    <span>Amsterdam</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Hamburg</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Dusseldorf</span>
-                  </a>
-                </li>
-              </ul>
-            </section>
-          </div>
+          <CityList cities={cities} currentCity={currentCity} onCurrentCityChange={onCurrentCityChange} />
           <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">
@@ -155,5 +124,17 @@ Main.propTypes = {
       name: PropTypes.string.isRequired
     }).isRequired
   })).isRequired,
-  onTitleClick: PropTypes.func.isRequired
+  onTitleClick: PropTypes.func.isRequired,
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  currentCity: PropTypes.string.isRequired,
+  onCurrentCityChange: PropTypes.func.isRequired
 };
+
+const mapStateToProps = ({cityList, currentCity}) => {
+  return {
+    cities: cityList,
+    currentCity
+  };
+};
+
+export default connect(mapStateToProps, {onCurrentCityChange: changeCurrentCity})(Main);
