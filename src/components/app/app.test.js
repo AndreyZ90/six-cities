@@ -1,10 +1,14 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
 import leaflet from 'leaflet';
 
 import App from '@/components/app/app';
 
 leaflet.map = () => {};
+
+const mockStore = configureStore([]);
 
 const offers = [
   {
@@ -175,15 +179,22 @@ const nearby = [
   }
 ];
 
+const store = mockStore({
+  offerList: offers,
+  cityList: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
+  currentCity: `Amsterdam`
+});
 
 describe(`App component snapshot`, () => {
   test(`Should correctly render App component`, () => {
     const tree = TestRenderer.create(
-        <App
-          offers={offers}
-          reviews={reviews}
-          nearby={nearby}
-          onTitleClick={() => {}} />
+        <Provider store={store}>
+          <App
+            reviews={reviews}
+            nearby={nearby}
+            onTitleClick={() => {}}
+          />
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
