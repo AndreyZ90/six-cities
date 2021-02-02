@@ -61,14 +61,20 @@ const offers = [
 
 const store = mockStore({
   cityList: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
-  currentCity: `Amsterdam`
+  currentCity: `Amsterdam`,
+  currentSort: `Popular`
 });
 
 describe(`Main component snapshot`, () => {
   test(`Should correctly render Main component`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
-          <Main offers={offers} onTitleClick={() => {}}/>
+          <Main
+            offers={offers}
+            onTitleClick={() => {}}
+            onCurrentCityChange={() => {}}
+            onCurrentSortChange={() => {}}
+          />
         </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
