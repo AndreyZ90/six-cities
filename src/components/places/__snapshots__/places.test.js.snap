@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Places component snapshot Should correctly render Places component 1`] = `
+<section
+  className="cities__places places"
+>
+  <h2
+    className="visually-hidden"
+  >
+    Places
+  </h2>
+  <b
+    className="places__found"
+  >
+    10
+     places to stay in Amsterdam
+  </b>
+  <div
+    className="some-children-node"
+  >
+    Places children node
+  </div>
+</section>
+`;
