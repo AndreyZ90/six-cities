@@ -44,6 +44,7 @@ const OfferDetails = (props) => {
   } = props;
 
   const geoCoords = getGeoCoords(nearby);
+  const activeGeoCoords = getGeoCoords(props.offer);
   const cityCoords = getGeoCoords(city);
   const zoom = city.location.zoom;
 
@@ -102,6 +103,7 @@ const OfferDetails = (props) => {
           </div>
           <MapDetails
             geoCoords={geoCoords}
+            activeGeoCoords={activeGeoCoords}
             center={cityCoords}
             zoom={zoom}
           />
