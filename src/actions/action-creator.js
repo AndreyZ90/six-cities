@@ -1,4 +1,4 @@
-import {GET_OFFERS, CHANGE_CURRENT_CITY} from '@/actions/const';
+import {GET_OFFERS, CHANGE_CURRENT_CITY, CHANGE_CURRENT_SORT} from '@/actions/const';
 
 const getOffers = () => {
   return {
@@ -14,4 +14,11 @@ const changeCurrentCity = (payload) => {
   };
 };
 
-export {getOffers, changeCurrentCity};
+const changeCurrentSort = (payload) => {
+  return {
+    type: CHANGE_CURRENT_SORT,
+    payload
+  };
+};
+
+export {getOffers, changeCurrentCity, changeCurrentSort};

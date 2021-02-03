@@ -1,4 +1,5 @@
 import reducer from '@/reducers/reducer';
+import {SortType} from '@/helpers/const';
 
 const initialState = {
   offerList: [
@@ -140,10 +141,13 @@ const initialState = {
     }
   ],
   cityList: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
-  currentCity: `Amsterdam`
+  currentCity: `Amsterdam`,
+  currentSort: SortType.POPULAR
 };
 
 const stateWithChangedCurrentCity = Object.assign({}, initialState, {currentCity: `Paris`});
+
+const stateWithChangedCurrentSort = Object.assign({}, initialState, {currentSort: SortType.LOW_TO_HIGH});
 
 describe(`Reducer tests`, () => {
   test(`Should return initial state (action - {})`, () => {
@@ -156,5 +160,9 @@ describe(`Reducer tests`, () => {
 
   test(`Should change currentCity`, () => {
     expect(reducer(initialState, {type: `CHANGE_CURRENT_CITY`, payload: `Paris`})).toEqual(stateWithChangedCurrentCity);
+  });
+
+  test(`Should change currentSort`, () => {
+    expect(reducer(initialState, {type: `CHANGE_CURRENT_SORT`, payload: SortType.LOW_TO_HIGH})).toEqual(stateWithChangedCurrentSort);
   });
 });

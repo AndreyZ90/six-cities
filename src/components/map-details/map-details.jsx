@@ -11,6 +11,7 @@ const MapDetails = (props) => {
 
 MapDetails.propTypes = {
   geoCoords: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  activeGeoCoords: PropTypes.array.isRequired,
   center: PropTypes.arrayOf(PropTypes.number).isRequired,
   zoom: PropTypes.number.isRequired
 };

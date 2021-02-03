@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import CityList from '@/components/city-list/city-list';
+import Places from '@/components/places/places';
+import Sort from '@/components/sort/sort';
 import OfferListCities from '@/components/offer-list-cities/offer-list-cities';
 import MapCities from '@/components/map-cities/map-cities';
 
-import {changeCurrentCity} from '@/actions/action-creator';
+import {changeCurrentCity, changeCurrentSort} from '@/actions/action-creator';
 
-import {HouseType} from '@/helpers/const';
-import {getGeoCoords} from '@/helpers/common';
+import {HouseType, SortType} from '@/helpers/const';
+import {getGeoCoords, getOffersBySort} from '@/helpers/common';
 
 class Main extends PureComponent {
   constructor(props) {
@@ -27,11 +29,22 @@ class Main extends PureComponent {
   }
 
   render() {
-    const {offers, cities, currentCity, onTitleClick, onCurrentCityChange} = this.props;
+    const {
+      offers,
+      cities,
+      currentCity,
+      onTitleClick,
+      onCurrentCityChange,
+      currentSort,
+      onCurrentSortChange
+    } = this.props;
 
-    const geoCoords = getGeoCoords(offers);
+    const geoCoords = getGeoCoords(offers.filter((offer) => offer.id !== this.state.activeCardId));
     const cityCoords = getGeoCoords(offers[0].city);
+    const activeGeoCoords = getGeoCoords(offers.find((offer) => offer.id === this.state.activeCardId));
     const zoom = offers[0].city.location.zoom;
+
+    const sortedOffers = getOffersBySort(offers, currentSort);
 
     return (
       <div className="page page--gray page--main">
@@ -59,36 +72,25 @@ class Main extends PureComponent {
         </header>
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
-          <CityList cities={cities} currentCity={currentCity} onCurrentCityChange={onCurrentCityChange} />
+          <CityList
+            cities={cities}
+            currentCity={currentCity}
+            onCurrentCityChange={onCurrentCityChange}
+          />
           <div className="cities">
             <div className="cities__places-container container">
-              <section className="cities__places places">
-                <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offers.length} places to stay in Amsterdam</b>
-                <form className="places__sorting" action="#" method="get">
-                  <span className="places__sorting-caption">Sort by</span>
-                  <span className="places__sorting-type" tabIndex={0}>
-              Popular
-                    <svg className="places__sorting-arrow" width={7} height={4}>
-                      <use xlinkHref="#icon-arrow-select" />
-                    </svg>
-                  </span>
-                  <ul className="places__options places__options--custom">
-                    <li className="places__option places__option--active" tabIndex={0}>Popular</li>
-                    <li className="places__option" tabIndex={0}>Price: low to high</li>
-                    <li className="places__option" tabIndex={0}>Price: high to low</li>
-                    <li className="places__option" tabIndex={0}>Top rated first</li>
-                  </ul>
-                </form>
+              <Places count={sortedOffers.length}>
+                <Sort currentSort={currentSort} onCurrentSortChange={onCurrentSortChange} />
                 <OfferListCities
-                  offers={offers}
+                  offers={sortedOffers}
                   onTitleClick={onTitleClick}
                   onActiveCardChange={this._handleActiveCardChange}
                 />
-              </section>
+              </Places>
               <div className="cities__right-section">
                 <MapCities
                   geoCoords={geoCoords}
+                  activeGeoCoords={activeGeoCoords}
                   center={cityCoords}
                   zoom={zoom}
                 />
@@ -127,14 +129,22 @@ Main.propTypes = {
   onTitleClick: PropTypes.func.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentCity: PropTypes.string.isRequired,
-  onCurrentCityChange: PropTypes.func.isRequired
+  onCurrentCityChange: PropTypes.func.isRequired,
+  currentSort: PropTypes.oneOf(Object.values(SortType)).isRequired,
+  onCurrentSortChange: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({cityList, currentCity}) => {
+const mapStateToProps = ({cityList, currentCity, currentSort}) => {
   return {
     cities: cityList,
-    currentCity
+    currentCity,
+    currentSort
   };
 };
 
-export default connect(mapStateToProps, {onCurrentCityChange: changeCurrentCity})(Main);
+const mapDispatchToProps = {
+  onCurrentCityChange: changeCurrentCity,
+  onCurrentSortChange: changeCurrentSort
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
