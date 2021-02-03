@@ -39,8 +39,9 @@ class Main extends PureComponent {
       onCurrentSortChange
     } = this.props;
 
-    const geoCoords = getGeoCoords(offers);
+    const geoCoords = getGeoCoords(offers.filter((offer) => offer.id !== this.state.activeCardId));
     const cityCoords = getGeoCoords(offers[0].city);
+    const activeGeoCoords = getGeoCoords(offers.find((offer) => offer.id === this.state.activeCardId));
     const zoom = offers[0].city.location.zoom;
 
     const sortedOffers = getOffersBySort(offers, currentSort);
@@ -89,6 +90,7 @@ class Main extends PureComponent {
               <div className="cities__right-section">
                 <MapCities
                   geoCoords={geoCoords}
+                  activeGeoCoords={activeGeoCoords}
                   center={cityCoords}
                   zoom={zoom}
                 />
