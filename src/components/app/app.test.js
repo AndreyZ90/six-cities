@@ -180,7 +180,6 @@ const nearby = [
 ];
 
 const store = mockStore({
-  offerList: offers,
   cityList: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
   currentCity: `Amsterdam`,
   currentSort: `Popular`
@@ -191,6 +190,7 @@ describe(`App component snapshot`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
           <App
+            offers={offers}
             reviews={reviews}
             nearby={nearby}
             onTitleClick={() => {}}

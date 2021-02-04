@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 
 const CityItem = (props) => {
@@ -21,4 +21,4 @@ CityItem.propTypes = {
   onCurrentCityChange: PropTypes.func.isRequired
 };
 
-export default CityItem;
+export default memo(CityItem);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 
 import OfferCard from '@/components/offer-card/offer-card';
@@ -54,4 +54,4 @@ OfferList.propTypes = {
   classPrefix: PropTypes.oneOf(Object.values(ClassPrefix))
 };
 
-export default OfferList;
+export default memo(OfferList);

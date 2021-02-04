@@ -8,14 +8,14 @@ const item = `Popular`;
 describe(`SortItem component snapshot`, () => {
   test(`Should correctly render SortItem component (active)`, () => {
     const tree = TestRenderer.create(
-        <SortItem item={item} isActive={true} onCurrentSortChange={() =>{}} />
+        <SortItem item={item} isActive={true} onCurrentSortChange={() =>{}} onFlagChange={() => {}} />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test(`Should correctly render SortItem component (not active)`, () => {
     const tree = TestRenderer.create(
-        <SortItem item={item} isActive={false} onCurrentSortChange={() =>{}}/>
+        <SortItem item={item} isActive={false} onCurrentSortChange={() =>{}} onFlagChange={() => {}} />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
