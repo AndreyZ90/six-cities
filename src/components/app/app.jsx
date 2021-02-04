@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import {connect} from 'react-redux';
 
-import Main from '@/components/main/main';
+import Main from '@/containers/main/main';
 import OfferDetails from '@/components/offer-details/offer-details';
 
 import {HouseType} from '@/helpers/const';
@@ -91,10 +90,4 @@ App.propTypes = {
   onTitleClick: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({offerList}) => {
-  return {
-    offers: offerList
-  };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
