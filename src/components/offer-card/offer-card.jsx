@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 
 import PremiumMarkCard from '@/components/premium-mark-card/premium-mark-card';
@@ -70,4 +70,4 @@ OfferCard.propTypes = {
   onActiveCardChange: PropTypes.func,
 };
 
-export default OfferCard;
+export default memo(OfferCard);

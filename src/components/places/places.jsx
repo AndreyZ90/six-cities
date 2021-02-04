@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 
 const Places = (props) => {
@@ -21,4 +21,4 @@ Places.propTypes = {
   ]).isRequired
 };
 
-export default Places;
+export default memo(Places);
