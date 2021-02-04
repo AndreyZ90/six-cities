@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withActiveFlag HOC snapshot Should correctly render withActiveFlag HOC 1`] = `
+<div
+  className="wrapped-component"
+>
+  Wrapped Component
+</div>
+`;
