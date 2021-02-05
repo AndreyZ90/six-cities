@@ -6,7 +6,6 @@ import Main from '@/components/main/main';
 
 leaflet.map = () => {};
 
-
 const offers = [
   {
     id: 1,

@@ -63,7 +63,7 @@ const Main = (props) => {
         />
         <div className="cities">
           <div className="cities__places-container container">
-            <Places count={sortedOffers.length}>
+            <Places count={sortedOffers.length} currentCity={currentCity}>
               <Sort currentSort={currentSort} onCurrentSortChange={onCurrentSortChange} />
               <OfferListCities
                 offers={sortedOffers}
