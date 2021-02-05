@@ -9,7 +9,7 @@ exports[`PreviewImage component snapshot Should correctly render PreviewImage co
       alt="Place image"
       className="place-card__image"
       height={200}
-      src="/img/image.jpg"
+      src="img/image.jpg"
       width={260}
     />
   </a>
