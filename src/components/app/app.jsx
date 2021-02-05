@@ -8,13 +8,17 @@ import OfferDetails from '@/components/offer-details/offer-details';
 import {HouseType} from '@/helpers/const';
 
 const App = (props) => {
-  const {offers, reviews, nearby, onTitleClick} = props;
+  const {offers, reviews, nearby, onTitleClick, loading} = props;
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Main offers={offers} onTitleClick={onTitleClick} />
+          <Main onTitleClick={onTitleClick} />
         </Route>
         <Route exact path="/dev-details">
           <OfferDetails
@@ -87,7 +91,8 @@ App.propTypes = {
       zoom: PropTypes.number.isRequired
     }).isRequired
   })).isRequired,
-  onTitleClick: PropTypes.func.isRequired
+  onTitleClick: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
 export default App;

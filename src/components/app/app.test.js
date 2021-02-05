@@ -179,7 +179,10 @@ const nearby = [
   }
 ];
 
+const loading = false;
+
 const store = mockStore({
+  offerList: offers,
   cityList: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
   currentCity: `Amsterdam`,
   currentSort: `Popular`
@@ -193,6 +196,7 @@ describe(`App component snapshot`, () => {
             offers={offers}
             reviews={reviews}
             nearby={nearby}
+            loading={loading}
             onTitleClick={() => {}}
           />
         </Provider>
