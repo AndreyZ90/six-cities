@@ -1,5 +1,12 @@
-import reducer from '@/store/reducers/reducer';
+import reducer from '@/store/reducers/data/data';
 import {SortType} from '@/helpers/const';
+
+const initialState = {
+  offerList: [],
+  cityList: [],
+  currentCity: null,
+  currentSort: SortType.POPULAR
+};
 
 const offerList = [
   {
@@ -140,41 +147,7 @@ const offerList = [
   }
 ];
 
-const cityList = [`Amsterdam`, `Moscow`, `London`];
-
-const currentCity = `Moscow`;
-
-const currentSort = `Popular`;
-
-const initialState = {
-  offerList: [],
-  cityList: [],
-  currentCity: null,
-  currentSort: SortType.POPULAR,
-  loading: false
-};
-
-describe(`Reducer tests`, () => {
-  test(`Should return initial state (action - {})`, () => {
-    expect(reducer(undefined, {})).toEqual(initialState);
-  });
-
-  test(`Should change loading (with action - FETCH_DATA_REQUEST)`, () => {
-    expect(
-        reducer(initialState, {type: `FETCH_DATA_REQUEST`, payload: null})
-    ).toEqual(
-        Object.assign({}, initialState, {loading: true})
-    );
-  });
-
-  test(`Should change loading (with action - FETCH_DATA_SUCCESS)`, () => {
-    expect(
-        reducer(initialState, {type: `FETCH_DATA_SUCCESS`, payload: null})
-    ).toEqual(
-        Object.assign({}, initialState, {loading: false})
-    );
-  });
-
+describe(`Data Reducer tests`, () => {
   test(`Should change offerList (with action - FETCH_OFFERS_SUCCESS)`, () => {
     expect(
         reducer(initialState, {type: `FETCH_OFFERS_SUCCESS`, payload: offerList})
@@ -183,27 +156,27 @@ describe(`Reducer tests`, () => {
     );
   });
 
-  test(`Should change cityList (with action - GET_CITIES)`, () => {
+  test(`Should change cityList (with action - SET_CITIES)`, () => {
     expect(
-        reducer(initialState, {type: `GET_CITIES`, payload: cityList})
+        reducer(initialState, {type: `SET_CITIES`, payload: [`Amsterdam`, `Moscow`, `London`]})
     ).toEqual(
-        Object.assign({}, initialState, {cityList})
+        Object.assign({}, initialState, {cityList: [`Amsterdam`, `Moscow`, `London`]})
     );
   });
 
   test(`Should change currentCity (with action - SET_CURRENT_CITY)`, () => {
     expect(
-        reducer(initialState, {type: `SET_CURRENT_CITY`, payload: currentCity})
+        reducer(initialState, {type: `SET_CURRENT_CITY`, payload: `Moscow`})
     ).toEqual(
-        Object.assign({}, initialState, {currentCity})
+        Object.assign({}, initialState, {currentCity: `Moscow`})
     );
   });
 
   test(`Should change currentSort (with action - SET_CURRENT_SORT)`, () => {
     expect(
-        reducer(initialState, {type: `SET_CURRENT_SORT`, payload: currentSort})
+        reducer(initialState, {type: `SET_CURRENT_SORT`, payload: `Popular`})
     ).toEqual(
-        Object.assign({}, initialState, {currentSort})
+        Object.assign({}, initialState, {currentSort: `Popular`})
     );
   });
 });
