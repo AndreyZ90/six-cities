@@ -9,7 +9,7 @@ const Gallery = (props) => {
   return (
     <div className="property__gallery-container container">
       <div className="property__gallery">
-        {images.map((image, index) => (
+        {images.slice(0, 6).map((image, index) => (
           <GalleryItem key={`${image}-${index}`} src={image} />
         ))}
       </div>
