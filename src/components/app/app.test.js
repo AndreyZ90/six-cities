@@ -182,10 +182,12 @@ const nearby = [
 const loading = false;
 
 const store = mockStore({
-  offerList: offers,
-  cityList: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
-  currentCity: `Amsterdam`,
-  currentSort: `Popular`
+  data: {
+    offerList: offers,
+    cityList: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
+    currentCity: `Amsterdam`,
+    currentSort: `Popular`
+  }
 });
 
 describe(`App component snapshot`, () => {
