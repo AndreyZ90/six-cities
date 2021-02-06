@@ -23,8 +23,8 @@ describe(`ActionCreators tests`, () => {
   });
 
   test(`Should return right action (GET_CITIES)`, () => {
-    expect(ActionCreator.getCities([`Moscow`, `London`])).toEqual({
-      type: `GET_CITIES`,
+    expect(ActionCreator.setCities([`Moscow`, `London`])).toEqual({
+      type: `SET_CITIES`,
       payload: [`Moscow`, `London`]
     });
   });

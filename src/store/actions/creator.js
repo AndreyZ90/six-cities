@@ -16,8 +16,8 @@ const ActionCreator = {
     payload
   }),
 
-  getCities: (payload) => ({
-    type: ActionType.GET_CITIES,
+  setCities: (payload) => ({
+    type: ActionType.SET_CITIES,
     payload
   }),
 
