@@ -172,7 +172,8 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
             className="places__found"
           >
             2
-             places to stay in Amsterdam
+             places to stay in 
+            Amsterdam
           </b>
           <form
             action="#"
@@ -256,7 +257,7 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height={200}
-                    src="/img/apartment-01.jpg"
+                    src="img/apartment-01.jpg"
                     width={260}
                   />
                 </a>
@@ -352,7 +353,7 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height={200}
-                    src="/img/apartment-02.jpg"
+                    src="img/apartment-02.jpg"
                     width={260}
                   />
                 </a>

@@ -7,7 +7,7 @@ const PreviewImage = (props) => {
   return (
     <div className="place-card__image-wrapper">
       <a>
-        <img className="place-card__image" src={`/${src}`} width={260} height={200} alt="Place image" />
+        <img className="place-card__image" src={src} width={260} height={200} alt="Place image" />
       </a>
     </div>
   );

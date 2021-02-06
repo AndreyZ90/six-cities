@@ -13,7 +13,7 @@ exports[`Gallery component snapshot Should correctly render Gallery component 1`
       <img
         alt="Photo studio"
         className="property__image"
-        src="/img/room.jpg"
+        src="img/room.jpg"
       />
     </div>
     <div
@@ -22,7 +22,7 @@ exports[`Gallery component snapshot Should correctly render Gallery component 1`
       <img
         alt="Photo studio"
         className="property__image"
-        src="/img/hotel.jpg"
+        src="img/hotel.jpg"
       />
     </div>
   </div>

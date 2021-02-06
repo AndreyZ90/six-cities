@@ -2,9 +2,12 @@ import {connect} from 'react-redux';
 
 import App from '@/components/app/app';
 
-const mapStateToProps = ({offerList}) => {
+import Selector from '@/store/selectors/selector';
+
+const mapStateToProps = (state) => {
   return {
-    offers: offerList
+    offers: Selector.getOffers(state),
+    loading: Selector.getLoading(state)
   };
 };
 

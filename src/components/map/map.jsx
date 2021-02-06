@@ -59,6 +59,15 @@ export default class Map extends Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    const [prevLattiude, prevLongitude] = prevProps.center;
+    const [lattiude, longitude] = this.props.center;
+
+    if (prevLattiude !== lattiude && prevLongitude !== longitude) {
+      this._leaflet.setView(this.props.center, this.props.zoom);
+    }
+  }
+
   render() {
     const {classPrefix} = this.props;
 

@@ -75,7 +75,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             <img
               alt="Photo studio"
               className="property__image"
-              src="/img/apartment-01.jpg"
+              src="img/apartment-01.jpg"
             />
           </div>
           <div
@@ -84,7 +84,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             <img
               alt="Photo studio"
               className="property__image"
-              src="/img/apartment-02.jpg"
+              src="img/apartment-02.jpg"
             />
           </div>
           <div
@@ -93,7 +93,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             <img
               alt="Photo studio"
               className="property__image"
-              src="/img/apartment-03.jpg"
+              src="img/apartment-03.jpg"
             />
           </div>
           <div
@@ -102,7 +102,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             <img
               alt="Photo studio"
               className="property__image"
-              src="/img/studio-01.jpg"
+              src="img/studio-01.jpg"
             />
           </div>
           <div
@@ -111,7 +111,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             <img
               alt="Photo studio"
               className="property__image"
-              src="/img/apartment-01.jpg"
+              src="img/apartment-01.jpg"
             />
           </div>
           <div
@@ -120,7 +120,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             <img
               alt="Photo studio"
               className="property__image"
-              src="/img/room.jpg"
+              src="img/room.jpg"
             />
           </div>
         </div>
@@ -621,7 +621,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
                   alt="Place image"
                   className="place-card__image"
                   height={200}
-                  src="/img/apartment-02.jpg"
+                  src="img/apartment-02.jpg"
                   width={260}
                 />
               </a>
@@ -724,7 +724,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
                   alt="Place image"
                   className="place-card__image"
                   height={200}
-                  src="/img/apartment-03.jpg"
+                  src="img/apartment-03.jpg"
                   width={260}
                 />
               </a>

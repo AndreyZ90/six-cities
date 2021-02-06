@@ -1,24 +1,27 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
 import App from '@/containers/app/app';
 
-import reducer from '@/reducers/reducer';
-import {getOffers} from '@/actions/action-creator';
+import store from '@/store/store';
+import ActionCreator from '@/store/actions/creator';
+import Operation from '@/store/actions/operation';
 
 import reviews from '@/mocks/reviews';
 import nearby from '@/mocks/nearby';
 
 const onTitleClick = () => {};
 
-const store = createStore(
-    reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+store.dispatch(Operation.fetchOffersRequest())
+  .then((offers) => {
+    const cities = [...new Set(offers.map(({city}) => city.name))];
+    store.dispatch(ActionCreator.setCities(cities));
 
-store.dispatch(getOffers());
+    return cities;
+  })
+  .then((cities) => store.dispatch(ActionCreator.setCurrentCity(cities[0])))
+  .then(() => store.dispatch(ActionCreator.fetchDataSuccess()));
 
 render(
     <Provider store={store}>
