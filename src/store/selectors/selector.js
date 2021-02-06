@@ -1,13 +1,14 @@
 import {createSelector} from 'reselect';
 
 const Selector = {
-  getOffers: (state) => state.offerList,
-  getCities: (state) => state.cityList,
-  getCurrentCity: (state) => state.currentCity,
-  getCurrentSort: (state) => state.currentSort,
+  getOffers: (state) => state.data.offerList,
+  getCities: (state) => state.data.cityList,
+  getCurrentCity: (state) => state.data.currentCity,
+  getCurrentSort: (state) => state.data.currentSort,
+  getLoading: (state) => state.app.loading,
   getOffersByCurrentCity: createSelector(
-      (state) => state.offerList,
-      (state) => state.currentCity,
+      (state) => state.data.offerList,
+      (state) => state.data.currentCity,
       (offers, city) => offers.filter((offer) => offer.city.name === city)
   )
 };
