@@ -7,7 +7,7 @@ exports[`GalleryItem component snapshot Should correctly render GalleryItem comp
   <img
     alt="Photo studio"
     className="property__image"
-    src="/img/hotel.jpg"
+    src="img/hotel.jpg"
   />
 </div>
 `;
