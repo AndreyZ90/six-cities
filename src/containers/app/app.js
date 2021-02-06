@@ -7,7 +7,7 @@ import Selector from '@/store/selectors/selector';
 const mapStateToProps = (state) => {
   return {
     offers: Selector.getOffers(state),
-    loading: state.loading
+    loading: Selector.getLoading(state)
   };
 };
 
