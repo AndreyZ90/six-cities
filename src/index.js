@@ -13,15 +13,20 @@ import nearby from '@/mocks/nearby';
 
 const onTitleClick = () => {};
 
-store.dispatch(Operation.fetchOffersRequest())
-  .then((offers) => {
-    const cities = [...new Set(offers.map(({city}) => city.name))];
-    store.dispatch(ActionCreator.setCities(cities));
+store.dispatch(ActionCreator.fetchDataRequest());
 
-    return cities;
-  })
-  .then((cities) => store.dispatch(ActionCreator.setCurrentCity(cities[0])))
-  .then(() => store.dispatch(ActionCreator.fetchDataSuccess()));
+Promise.all([
+  store.dispatch(Operation.fetchOffersRequest())
+    .then((offers) => {
+      const cities = [...new Set(offers.map(({city}) => city.name))];
+      store.dispatch(ActionCreator.setCities(cities));
+
+      return cities;
+    })
+    .then((cities) => store.dispatch(ActionCreator.setCurrentCity(cities[0]))),
+  store.dispatch(Operation.fetchLoginRequestGet())
+])
+.then(() => store.dispatch(ActionCreator.fetchDataSuccess()));
 
 render(
     <Provider store={store}>
