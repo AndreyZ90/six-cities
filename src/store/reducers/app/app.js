@@ -1,8 +1,7 @@
 import ActionType from '@/store/actions/const';
 
 const initialState = {
-  loading: false,
-  error: false
+  loading: false
 };
 
 const reducer = (state = initialState, action) => {
