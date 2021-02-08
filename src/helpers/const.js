@@ -1,3 +1,13 @@
+const ApiConfig = {
+  baseURL: `https://4.react.pages.academy/six-cities`,
+  timeout: 5000
+};
+
+const AuthStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`
+};
+
 const ClassPrefix = {
   CARD: `place-card`,
   CITY: `cities`,
@@ -31,6 +41,8 @@ const SortType = {
 };
 
 export {
+  ApiConfig,
+  AuthStatus,
   ClassPrefix,
   HouseType,
   MapPin,
