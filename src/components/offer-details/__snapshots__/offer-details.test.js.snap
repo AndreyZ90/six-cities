@@ -17,15 +17,14 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
           className="header__left"
         >
           <a
-            className="header__logo-link"
-            href="main.html"
+            className="header__logo-link header__logo-link--active"
           >
             <img
               alt="6 cities logo"
               className="header__logo"
-              height={41}
-              src="img/logo.svg"
-              width={81}
+              height="{41}"
+              src="/img/logo.svg"
+              width="{81}"
             />
           </a>
         </div>
@@ -48,7 +47,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
                 <span
                   className="header__user-name user__name"
                 >
-                  Oliver.conner@gmail.com
+                  test@gmail.com
                 </span>
               </a>
             </li>

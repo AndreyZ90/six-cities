@@ -1,10 +1,14 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
 import leaflet from 'leaflet';
 
 import Main from '@/components/main/main';
 
 leaflet.map = () => {};
+
+const mockStore = configureStore([]);
 
 const offers = [
   {
@@ -60,20 +64,29 @@ const currentCity = `Amsterdam`;
 const currentSort = `Popular`;
 const activeItem = -1;
 
+const store = mockStore({
+  user: {
+    email: `test@gmail.com`,
+    authStatus: `AUTH`
+  }
+});
+
 describe(`Main component snapshot`, () => {
   test(`Should correctly render Main component`, () => {
     const tree = TestRenderer.create(
-        <Main
-          offers={offers}
-          cities={cityList}
-          currentCity={currentCity}
-          currentSort={currentSort}
-          activeItem={activeItem}
-          onTitleClick={() => {}}
-          onCurrentCityChange={() => {}}
-          onCurrentSortChange={() => {}}
-          onActiveItemChange={() => {}}
-        />
+        <Provider store={store}>
+          <Main
+            offers={offers}
+            cities={cityList}
+            currentCity={currentCity}
+            currentSort={currentSort}
+            activeItem={activeItem}
+            onTitleClick={() => {}}
+            onCurrentCityChange={() => {}}
+            onCurrentSortChange={() => {}}
+            onActiveItemChange={() => {}}
+          />
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

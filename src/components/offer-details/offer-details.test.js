@@ -1,10 +1,14 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
 import leaflet from 'leaflet';
 
 import OfferDetails from '@/components/offer-details/offer-details';
 
 leaflet.map = () => {};
+
+const mockStore = configureStore([]);
 
 const offer = {
   id: 1,
@@ -139,15 +143,24 @@ const nearby = [
   }
 ];
 
+const store = mockStore({
+  user: {
+    email: `test@gmail.com`,
+    authStatus: `AUTH`
+  }
+});
+
 describe(`OfferDetails component snapshot`, () => {
   test(`Should correctly render OfferDetails component`, () => {
     const tree = TestRenderer.create(
-        <OfferDetails
-          offer={offer}
-          reviews={reviews}
-          nearby={nearby}
-          onTitleClick={() => {}}
-        />
+        <Provider store={store}>
+          <OfferDetails
+            offer={offer}
+            reviews={reviews}
+            nearby={nearby}
+            onTitleClick={() => {}}
+          />
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

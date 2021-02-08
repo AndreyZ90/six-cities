@@ -42,4 +42,21 @@ describe(`ActionCreators tests`, () => {
       payload: `Popular`
     });
   });
+
+  test(`Should return right action (FETCH_LOGIN_SUCCESS)`, () => {
+    expect(ActionCreator.fetchLoginSuccess({email: `test@gmail.com`, authStatus: `AUTH`})).toEqual({
+      type: `FETCH_LOGIN_SUCCESS`,
+      payload: {
+        email: `test@gmail.com`,
+        authStatus: `AUTH`
+      }
+    });
+  });
+
+  test(`Should return right action (FETCH_LOGIN_FAILURE)`, () => {
+    expect(ActionCreator.fetchLoginFailure({email: ``, authStatus: `NO_AUTH`})).toEqual({
+      type: `FETCH_LOGIN_FAILURE`,
+      payload: {email: ``, authStatus: `NO_AUTH`}
+    });
+  });
 });

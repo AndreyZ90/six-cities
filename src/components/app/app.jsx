@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import Main from '@/containers/main/main';
 import OfferDetails from '@/components/offer-details/offer-details';
+import SignIn from '@/containers/sign-in/sign-in';
 
 import {HouseType} from '@/helpers/const';
 
@@ -27,6 +28,9 @@ const App = (props) => {
             nearby={nearby}
             onTitleClick={onTitleClick}
           />
+        </Route>
+        <Route exact path='/dev-login'>
+          <SignIn />
         </Route>
       </Switch>
     </Router>
