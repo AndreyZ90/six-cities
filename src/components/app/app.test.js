@@ -187,6 +187,10 @@ const store = mockStore({
     cityList: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
     currentCity: `Amsterdam`,
     currentSort: `Popular`
+  },
+  user: {
+    email: `test@gmail.com`,
+    authStatus: `AUTH`
   }
 });
 

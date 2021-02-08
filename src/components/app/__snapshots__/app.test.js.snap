@@ -22,9 +22,9 @@ exports[`App component snapshot Should correctly render App component 1`] = `
             <img
               alt="6 cities logo"
               className="header__logo"
-              height={41}
-              src="img/logo.svg"
-              width={81}
+              height="{41}"
+              src="/img/logo.svg"
+              width="{81}"
             />
           </a>
         </div>
@@ -47,7 +47,7 @@ exports[`App component snapshot Should correctly render App component 1`] = `
                 <span
                   className="header__user-name user__name"
                 >
-                  Oliver.conner@gmail.com
+                  test@gmail.com
                 </span>
               </a>
             </li>
