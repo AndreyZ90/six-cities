@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withAuthData HOC snapshot Should correctly render withAuthData HOC 1`] = `
+<div
+  className="wrapped-component"
+>
+  Wrapped Component
+</div>
+`;
