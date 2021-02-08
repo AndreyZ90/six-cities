@@ -29,6 +29,16 @@ const ActionCreator = {
   setCurrentSort: (payload) => ({
     type: ActionType.SET_CURRENT_SORT,
     payload
+  }),
+
+  fetchLoginSuccess: (payload) => ({
+    type: ActionType.FETCH_LOGIN_SUCCESS,
+    payload
+  }),
+
+  fetchLoginFailure: (payload) => ({
+    type: ActionType.FETCH_LOGIN_FAILURE,
+    payload
   })
 };
 
