@@ -147,7 +147,11 @@ const offerList = [
   }
 ];
 
-describe(`Data Reducer tests`, () => {
+describe(`Data reducer tests`, () => {
+  test(`Should return initialState`, () => {
+    expect(reducer(void 0, {})).toEqual(initialState);
+  });
+
   test(`Should change offerList (with action - FETCH_OFFERS_SUCCESS)`, () => {
     expect(
         reducer(initialState, {type: `FETCH_OFFERS_SUCCESS`, payload: offerList})
