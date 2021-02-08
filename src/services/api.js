@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+import {ApiConfig} from '@/helpers/const';
+
 const createApi = () => {
   const instance = axios.create({
-    baseURL: `https://4.react.pages.academy/six-cities`,
-    timeout: 5000,
+    baseURL: ApiConfig.baseURL,
+    timeout: ApiConfig.timeout,
     withCredentials: true
   });
 
