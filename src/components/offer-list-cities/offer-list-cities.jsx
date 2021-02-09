@@ -20,7 +20,6 @@ OfferListCities.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(Object.keys(HouseType)).isRequired
   })).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
   onActiveCardChange: PropTypes.func
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import OfferListCities from '@/components/offer-list-cities/offer-list-cities';
 
@@ -29,10 +30,11 @@ const offers = [
 describe(`OfferListCities component snapshot`, () => {
   test(`Should correctly render OfferListCities component`, () => {
     const tree = TestRenderer.create(
-        <OfferListCities
-          offers={offers}
-          onTitleClick={() => {}}
-        />
+        <Router>
+          <OfferListCities
+            offers={offers}
+          />
+        </Router>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

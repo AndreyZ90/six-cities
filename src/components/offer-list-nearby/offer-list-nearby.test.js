@@ -1,5 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import OfferListNearby from '@/components/offer-list-nearby/offer-list-nearby';
 
@@ -29,10 +30,11 @@ const offers = [
 describe(`OfferListNearby component snapshot`, () => {
   test(`Should correctly render OfferListNearby component`, () => {
     const tree = TestRenderer.create(
-        <OfferListNearby
-          offers={offers}
-          onTitleClick={() => {}}
-        />
+        <Router>
+          <OfferListNearby
+            offers={offers}
+          />
+        </Router>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
