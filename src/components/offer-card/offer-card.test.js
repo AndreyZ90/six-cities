@@ -1,5 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import OfferCard from '@/components/offer-card/offer-card';
 
@@ -17,11 +18,12 @@ const offer = {
 describe(`OfferCard component snapshot`, () => {
   test(`Should correctly render OfferCard component`, () => {
     const tree = TestRenderer.create(
-        <OfferCard
-          offer={offer}
-          onTitleClick={() => {}}
-          onActiveCardChange={() => {}}
-        />
+        <Router>
+          <OfferCard
+            offer={offer}
+            onActiveCardChange={() => {}}
+          />
+        </Router>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

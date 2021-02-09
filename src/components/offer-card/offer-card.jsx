@@ -1,5 +1,6 @@
 import React, {memo} from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import PremiumMarkCard from '@/components/premium-mark-card/premium-mark-card';
 import PreviewImage from '@/components/preview-image/preview-image';
@@ -7,7 +8,7 @@ import PriceCard from '@/components/price-card/price-card';
 import BookmarkButtonCard from '@/components/bookmark-button-card/bookmark-button-card';
 import RatingCard from '@/components/rating-card/rating-card';
 
-import {HouseType} from '@/helpers/const';
+import {AppRoute, HouseType} from '@/helpers/const';
 
 const OfferCard = (props) => {
   const {
@@ -21,7 +22,6 @@ const OfferCard = (props) => {
       title,
       type,
     },
-    onTitleClick,
     className,
     onActiveCardChange,
   } = props;
@@ -40,8 +40,8 @@ const OfferCard = (props) => {
           <BookmarkButtonCard isActive={isFavorite} />
         </div>
         <RatingCard rating={rating} />
-        <h2 className="place-card__name" onClick={onTitleClick}>
-          <a href="#">{title}</a>
+        <h2 className="place-card__name">
+          <Link to={`${AppRoute.OFFER}/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{HouseType[type]}</p>
       </div>
@@ -65,7 +65,6 @@ OfferCard.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
   }).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
   className: PropTypes.string,
   onActiveCardChange: PropTypes.func,
 };

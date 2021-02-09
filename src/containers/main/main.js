@@ -8,17 +8,18 @@ import withActiveItem from '@/HOCs/with-active-item/with-active-item';
 import ActionCreator from '@/store/actions/creator';
 import Selector from '@/store/selectors/selector';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, {currentCity}) => {
+  const city = currentCity ? `${currentCity[0].toUpperCase()}${currentCity.slice(1)}` : Selector.getCities(state)[0];
+
   return {
     cities: Selector.getCities(state),
-    currentCity: Selector.getCurrentCity(state),
+    currentCity: city,
     currentSort: Selector.getCurrentSort(state),
-    offers: Selector.getOffersByCurrentCity(state)
+    offers: Selector.getOffersByCurrentCity(state, city)
   };
 };
 
 const mapDispatchToProps = {
-  onCurrentCityChange: ActionCreator.setCurrentCity,
   onCurrentSortChange: ActionCreator.setCurrentSort
 };
 

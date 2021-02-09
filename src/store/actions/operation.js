@@ -1,4 +1,3 @@
-
 import ActionCreator from '@/store/actions/creator';
 import Adapter from '@/helpers/adapter';
 
@@ -26,6 +25,28 @@ const Operation = {
     return api.post(`login`, {email, password})
       .then(({data}) => dispatch(ActionCreator.fetchLoginSuccess({authStatus: AuthStatus.AUTH, email: data.email})))
       .catch(() => dispatch(ActionCreator.fetchLoginFailure({authStatus: AuthStatus.NO_AUTH, email: ``})));
+  },
+
+  fetchOffersNearbyRequest: (id) => (dispatch, _getState, api) => {
+    return api.get(`/hotels/${id}/nearby`)
+      .then(({data}) => {
+        const offersNearby = Adapter.offers(data);
+
+        dispatch(ActionCreator.fetchOffersNearbySuccess(offersNearby));
+
+        return offersNearby;
+      });
+  },
+
+  fetchReviewsRequest: (id) => (dispatch, _getState, api) => {
+    return api.get(`/comments/${id}`)
+      .then(({data}) => {
+        const reviews = Adapter.reviews(data);
+
+        dispatch(ActionCreator.fetchReviewsSuccess(reviews));
+
+        return reviews;
+      });
   }
 };
 

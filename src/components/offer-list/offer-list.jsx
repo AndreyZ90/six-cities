@@ -19,14 +19,13 @@ const getOfferByPrefix = (prefix, props) => {
 };
 
 const OfferList = (props) => {
-  const {offers, onTitleClick, onActiveCardChange, className, classPrefix} = props;
+  const {offers, onActiveCardChange, className, classPrefix} = props;
 
   return (
     <div className={`${className} places__list`}>
       {offers.map((offer) => getOfferByPrefix(classPrefix, {
         key: offer.id,
         offer,
-        onTitleClick,
         onActiveCardChange
       }))}
     </div>
@@ -48,7 +47,6 @@ OfferList.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.oneOf(Object.keys(HouseType)).isRequired
   })).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
   onActiveCardChange: PropTypes.func,
   className: PropTypes.string,
   classPrefix: PropTypes.oneOf(Object.values(ClassPrefix))

@@ -1,5 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import OfferCardCities from '@/components/offer-card-cities/offer-card-cities';
 
@@ -17,11 +18,12 @@ const offer = {
 describe(`OfferCardCities component snapshot`, () => {
   test(`Should correctly render OfferCardCities component`, () => {
     const tree = TestRenderer.create(
-        <OfferCardCities
-          offer={offer}
-          onTitleClick={() => {}}
-          onActiveCardChange={() => {}}
-        />
+        <Router>
+          <OfferCardCities
+            offer={offer}
+            onActiveCardChange={() => {}}
+          />
+        </Router>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

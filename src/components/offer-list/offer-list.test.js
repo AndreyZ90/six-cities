@@ -1,5 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import OfferList from '@/components/offer-list/offer-list';
 
@@ -31,35 +32,38 @@ const offers = [
 describe(`OfferList component snapshot`, () => {
   test(`Should correctly render OfferList component (default)`, () => {
     const tree = TestRenderer.create(
-        <OfferList
-          offers={offers}
-          onTitleClick={() => {}}
-          onActiveCardChange={() => {}}
-        />
+        <Router>
+          <OfferList
+            offers={offers}
+            onActiveCardChange={() => {}}
+          />
+        </Router>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test(`Should correctly render OfferList component (with prefix CITY)`, () => {
     const tree = TestRenderer.create(
-        <OfferList
-          offers={offers}
-          classPrefix={ClassPrefix.CITY}
-          onTitleClick={() => {}}
-          onActiveCardChange={() => {}}
-        />
+        <Router>
+          <OfferList
+            offers={offers}
+            classPrefix={ClassPrefix.CITY}
+            onActiveCardChange={() => {}}
+          />
+        </Router>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test(`Should correctly render OfferList component (with prefix NEARBY)`, () => {
     const tree = TestRenderer.create(
-        <OfferList
-          offers={offers}
-          classPrefix={ClassPrefix.NEARBY}
-          onTitleClick={() => {}}
-          onActiveCardChange={() => {}}
-        />
+        <Router>
+          <OfferList
+            offers={offers}
+            classPrefix={ClassPrefix.NEARBY}
+            onActiveCardChange={() => {}}
+          />
+        </Router>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

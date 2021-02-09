@@ -3,8 +3,9 @@ import {SortType} from '@/helpers/const';
 
 const initialState = {
   offerList: [],
+  offerNearbyList: [],
   cityList: [],
-  currentCity: null,
+  reviewList: [],
   currentSort: SortType.POPULAR
 };
 
@@ -165,14 +166,6 @@ describe(`Data reducer tests`, () => {
         reducer(initialState, {type: `SET_CITIES`, payload: [`Amsterdam`, `Moscow`, `London`]})
     ).toEqual(
         Object.assign({}, initialState, {cityList: [`Amsterdam`, `Moscow`, `London`]})
-    );
-  });
-
-  test(`Should change currentCity (with action - SET_CURRENT_CITY)`, () => {
-    expect(
-        reducer(initialState, {type: `SET_CURRENT_CITY`, payload: `Moscow`})
-    ).toEqual(
-        Object.assign({}, initialState, {currentCity: `Moscow`})
     );
   });
 

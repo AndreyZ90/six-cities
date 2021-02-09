@@ -92,10 +92,10 @@ exports[`OfferListCities component snapshot Should correctly render OfferListCit
       </div>
       <h2
         className="place-card__name"
-        onClick={[Function]}
       >
         <a
-          href="#"
+          href="/offer/1"
+          onClick={[Function]}
         >
           Beautiful & luxurious studio at great location
         </a>
@@ -188,10 +188,10 @@ exports[`OfferListCities component snapshot Should correctly render OfferListCit
       </div>
       <h2
         className="place-card__name"
-        onClick={[Function]}
       >
         <a
-          href="#"
+          href="/offer/2"
+          onClick={[Function]}
         >
           Wood and stone place
         </a>

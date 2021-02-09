@@ -28,4 +28,23 @@ export default class Adapter {
   static offers(offers) {
     return offers.map((data) => this.offer(data));
   }
+
+  static review(review) {
+    return {
+      comment: review.comment,
+      date: review.date,
+      id: review.id,
+      rating: review.rating,
+      user: {
+        avatarUrl: review.user.avatar_url,
+        id: review.user.id,
+        isPro: review.user.is_pro,
+        name: review.user.name
+      }
+    };
+  }
+
+  static reviews(reviews) {
+    return reviews.map((data) => this.review(data));
+  }
 }

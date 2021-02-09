@@ -89,10 +89,10 @@ exports[`OfferCardNearby component snapshot Should correctly render OfferCardNea
     </div>
     <h2
       className="place-card__name"
-      onClick={[Function]}
     >
       <a
-        href="#"
+        href="/offer/1"
+        onClick={[Function]}
       >
         Beautiful & luxurious studio at great location
       </a>

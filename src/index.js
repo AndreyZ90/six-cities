@@ -8,11 +8,6 @@ import store from '@/store/store';
 import ActionCreator from '@/store/actions/creator';
 import Operation from '@/store/actions/operation';
 
-import reviews from '@/mocks/reviews';
-import nearby from '@/mocks/nearby';
-
-const onTitleClick = () => {};
-
 store.dispatch(ActionCreator.fetchDataRequest());
 
 Promise.all([
@@ -30,11 +25,7 @@ Promise.all([
 
 render(
     <Provider store={store}>
-      <App
-        reviews={reviews}
-        nearby={nearby}
-        onTitleClick={onTitleClick}
-      />
+      <App />
     </Provider>,
     document.getElementById(`root`)
 );

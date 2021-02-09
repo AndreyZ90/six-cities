@@ -3,6 +3,13 @@ const ApiConfig = {
   timeout: 5000
 };
 
+const AppRoute = {
+  MAIN: `/`,
+  OFFER: `/offer`,
+  LOGIN: `/login`,
+  FAVORITES: `/favorites`
+};
+
 const AuthStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`
@@ -42,6 +49,7 @@ const SortType = {
 
 export {
   ApiConfig,
+  AppRoute,
   AuthStatus,
   ClassPrefix,
   HouseType,

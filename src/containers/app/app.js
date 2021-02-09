@@ -6,6 +6,7 @@ import Selector from '@/store/selectors/selector';
 
 const mapStateToProps = (state) => {
   return {
+    authStatus: Selector.getAuthStatus(state),
     offers: Selector.getOffers(state),
     loading: Selector.getLoading(state)
   };

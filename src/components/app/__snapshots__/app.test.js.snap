@@ -18,6 +18,8 @@ exports[`App component snapshot Should correctly render App component 1`] = `
         >
           <a
             className="header__logo-link header__logo-link--active"
+            href="/"
+            onClick={[Function]}
           >
             <img
               alt="6 cities logo"
@@ -75,50 +77,11 @@ exports[`App component snapshot Should correctly render App component 1`] = `
         >
           <li
             className="locations__item"
-            onClick={[Function]}
-          >
-            <a
-              className="locations__item-link tabs__item "
-              href="#"
-            >
-              <span>
-                Paris
-              </span>
-            </a>
-          </li>
-          <li
-            className="locations__item"
-            onClick={[Function]}
-          >
-            <a
-              className="locations__item-link tabs__item "
-              href="#"
-            >
-              <span>
-                Cologne
-              </span>
-            </a>
-          </li>
-          <li
-            className="locations__item"
-            onClick={[Function]}
-          >
-            <a
-              className="locations__item-link tabs__item "
-              href="#"
-            >
-              <span>
-                Brussels
-              </span>
-            </a>
-          </li>
-          <li
-            className="locations__item"
-            onClick={[Function]}
           >
             <a
               className="locations__item-link tabs__item tabs__item--active"
-              href="#"
+              href="/amsterdam"
+              onClick={[Function]}
             >
               <span>
                 Amsterdam
@@ -127,11 +90,37 @@ exports[`App component snapshot Should correctly render App component 1`] = `
           </li>
           <li
             className="locations__item"
-            onClick={[Function]}
           >
             <a
               className="locations__item-link tabs__item "
-              href="#"
+              href="/cologne"
+              onClick={[Function]}
+            >
+              <span>
+                Cologne
+              </span>
+            </a>
+          </li>
+          <li
+            className="locations__item"
+          >
+            <a
+              className="locations__item-link tabs__item "
+              href="/brussels"
+              onClick={[Function]}
+            >
+              <span>
+                Brussels
+              </span>
+            </a>
+          </li>
+          <li
+            className="locations__item"
+          >
+            <a
+              className="locations__item-link tabs__item "
+              href="/hamburg"
+              onClick={[Function]}
             >
               <span>
                 Hamburg
@@ -140,11 +129,11 @@ exports[`App component snapshot Should correctly render App component 1`] = `
           </li>
           <li
             className="locations__item"
-            onClick={[Function]}
           >
             <a
               className="locations__item-link tabs__item "
-              href="#"
+              href="/dusseldorf"
+              onClick={[Function]}
             >
               <span>
                 Dusseldorf
@@ -325,10 +314,10 @@ exports[`App component snapshot Should correctly render App component 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[Function]}
                 >
                   <a
-                    href="#"
+                    href="/offer/1"
+                    onClick={[Function]}
                   >
                     Beautiful & luxurious studio at great location
                   </a>
@@ -421,10 +410,10 @@ exports[`App component snapshot Should correctly render App component 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[Function]}
                 >
                   <a
-                    href="#"
+                    href="/offer/2"
+                    onClick={[Function]}
                   >
                     Wood and stone place
                   </a>
