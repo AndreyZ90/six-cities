@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
 import Header from '@/containers/header/header';
@@ -21,82 +21,92 @@ import OfferListNearby from '@/components/offer-list-nearby/offer-list-nearby';
 import {HouseType} from '@/helpers/const';
 import {getGeoCoords} from '@/helpers/common';
 
+export default class OfferDetails extends PureComponent {
+  componentDidMount() {
+    this.props.fetchData(this.props.id);
+  }
 
-const OfferDetails = (props) => {
-  const {
-    offer: {
-      isFavorite,
-      isPremium,
-      price,
-      rating,
-      title,
-      type,
-      images,
-      bedrooms,
-      maxAdults,
-      goods,
-      host,
-      description,
-      city
-    },
-    reviews,
-    nearby,
-    onTitleClick
-  } = props;
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id) {
+      this.props.fetchData(this.props.id);
+    }
+  }
 
-  const geoCoords = getGeoCoords(nearby);
-  const activeGeoCoords = getGeoCoords(props.offer);
-  const cityCoords = getGeoCoords(city);
-  const zoom = city.location.zoom;
+  render() {
+    const {
+      offer: {
+        isFavorite,
+        isPremium,
+        price,
+        rating,
+        title,
+        type,
+        images,
+        bedrooms,
+        maxAdults,
+        goods,
+        host,
+        description,
+        city
+      },
+      reviews = [],
+      nearby = [],
+    } = this.props;
 
-  return (
-    <div className="page">
-      <Header />
-      <main className="page__main page__main--property">
-        <section className="property">
-          <Gallery images={images} />
-          <div className="property__container container">
-            <div className="property__wrapper">
-              {isPremium && <PremiumMarkDetails />}
-              <div className="property__name-wrapper">
-                <h1 className="property__name">
-                  {title}
-                </h1>
-                <BookmarkButtonDetails isActive={isFavorite} />
+    const geoCoords = getGeoCoords(nearby);
+    const activeGeoCoords = getGeoCoords(this.props.offer);
+    const cityCoords = getGeoCoords(city);
+    const zoom = city.location.zoom;
+
+    return (
+      <div className="page">
+        <Header />
+        <main className="page__main page__main--property">
+          <section className="property">
+            <Gallery images={images} />
+            <div className="property__container container">
+              <div className="property__wrapper">
+                {isPremium && <PremiumMarkDetails />}
+                <div className="property__name-wrapper">
+                  <h1 className="property__name">
+                    {title}
+                  </h1>
+                  <BookmarkButtonDetails isActive={isFavorite} />
+                </div>
+                <RatingDetails rating={rating} />
+                <FeatureList
+                  type={type}
+                  bedrooms={bedrooms}
+                  maxAdults={maxAdults}
+                />
+                <PriceDetails price={price} />
+                <Inside>
+                  <InsideList goods={goods} />
+                </Inside>
+                <Host host={host} description={description} />
+                <Review count={reviews.length}>
+                  <ReviewList reviews={reviews} />
+                  <ReviewForm />
+                </Review>
               </div>
-              <RatingDetails rating={rating} />
-              <FeatureList
-                type={type}
-                bedrooms={bedrooms}
-                maxAdults={maxAdults}
-              />
-              <PriceDetails price={price} />
-              <Inside>
-                <InsideList goods={goods} />
-              </Inside>
-              <Host host={host} description={description} />
-              <Review count={reviews.length}>
-                <ReviewList reviews={reviews} />
-                <ReviewForm />
-              </Review>
             </div>
+            <MapDetails
+              geoCoords={geoCoords}
+              activeGeoCoords={activeGeoCoords}
+              center={cityCoords}
+              zoom={zoom}
+            />
+          </section>
+          <div className="container">
+            <Nearby>
+              <OfferListNearby offers={nearby} />
+            </Nearby>
           </div>
-          <MapDetails
-            geoCoords={geoCoords}
-            activeGeoCoords={activeGeoCoords}
-            center={cityCoords}
-            zoom={zoom}
-          />
-        </section>
-        <div className="container">
-          <Nearby>
-            <OfferListNearby offers={nearby} onTitleClick={onTitleClick} />
-          </Nearby>
-        </div>
-      </main>
-    </div>
-  );
-};
+        </main>
+      </div>
+    );
+  }
+}
 
 OfferDetails.propTypes = {
   offer: PropTypes.shape({
@@ -151,7 +161,7 @@ OfferDetails.propTypes = {
       zoom: PropTypes.number.isRequired
     }).isRequired,
   })).isRequired,
-  onTitleClick: PropTypes.func.isRequired
+  fetchData: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired
 };
 
-export default OfferDetails;

@@ -18,6 +18,8 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
         >
           <a
             className="header__logo-link header__logo-link--active"
+            href="/"
+            onClick={[Function]}
           >
             <img
               alt="6 cities logo"
@@ -319,7 +321,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
                       alt="Reviews avatar"
                       className="reviews__avatar user__avatar reviews__avatar--active"
                       height={54}
-                      src="/img/avatar-max.jpg"
+                      src="img/avatar-max.jpg"
                       width={54}
                     />
                   </div>
@@ -378,7 +380,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
                       alt="Reviews avatar"
                       className="reviews__avatar user__avatar "
                       height={54}
-                      src="/img/avatar-max.jpg"
+                      src="img/avatar-max.jpg"
                       width={54}
                     />
                   </div>
@@ -688,10 +690,10 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
               </div>
               <h2
                 className="place-card__name"
-                onClick={[Function]}
               >
                 <a
-                  href="#"
+                  href="/offer/2"
+                  onClick={[Function]}
                 >
                   Wood and stone place
                 </a>
@@ -791,10 +793,10 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
               </div>
               <h2
                 className="place-card__name"
-                onClick={[Function]}
               >
                 <a
-                  href="#"
+                  href="/offer/3"
+                  onClick={[Function]}
                 >
                   Canal View Prinsengracht
                 </a>
