@@ -39,7 +39,17 @@ const ActionCreator = {
   fetchLoginFailure: (payload) => ({
     type: ActionType.FETCH_LOGIN_FAILURE,
     payload
-  })
+  }),
+
+  fetchOffersNearbySuccess: (payload) => ({
+    type: ActionType.FETCH_OFFERS_NEARBY_SUCCESS,
+    payload
+  }),
+
+  fetchReviewsSuccess: (payload) => ({
+    type: ActionType.FETCH_REVIEWS_SUCCESS,
+    payload
+  }),
 };
 
 export default ActionCreator;
