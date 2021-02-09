@@ -12,11 +12,11 @@ exports[`CityList component snapshot Should correctly render CityList component 
     >
       <li
         className="locations__item"
-        onClick={[Function]}
       >
         <a
           className="locations__item-link tabs__item "
-          href="#"
+          href="/paris"
+          onClick={[Function]}
         >
           <span>
             Paris
@@ -25,11 +25,11 @@ exports[`CityList component snapshot Should correctly render CityList component 
       </li>
       <li
         className="locations__item"
-        onClick={[Function]}
       >
         <a
           className="locations__item-link tabs__item "
-          href="#"
+          href="/cologne"
+          onClick={[Function]}
         >
           <span>
             Cologne
@@ -38,11 +38,11 @@ exports[`CityList component snapshot Should correctly render CityList component 
       </li>
       <li
         className="locations__item"
-        onClick={[Function]}
       >
         <a
           className="locations__item-link tabs__item "
-          href="#"
+          href="/brussels"
+          onClick={[Function]}
         >
           <span>
             Brussels
@@ -51,11 +51,11 @@ exports[`CityList component snapshot Should correctly render CityList component 
       </li>
       <li
         className="locations__item"
-        onClick={[Function]}
       >
         <a
           className="locations__item-link tabs__item tabs__item--active"
-          href="#"
+          href="/amsterdam"
+          onClick={[Function]}
         >
           <span>
             Amsterdam
@@ -64,11 +64,11 @@ exports[`CityList component snapshot Should correctly render CityList component 
       </li>
       <li
         className="locations__item"
-        onClick={[Function]}
       >
         <a
           className="locations__item-link tabs__item "
-          href="#"
+          href="/hamburg"
+          onClick={[Function]}
         >
           <span>
             Hamburg
@@ -77,11 +77,11 @@ exports[`CityList component snapshot Should correctly render CityList component 
       </li>
       <li
         className="locations__item"
-        onClick={[Function]}
       >
         <a
           className="locations__item-link tabs__item "
-          href="#"
+          href="/dusseldorf"
+          onClick={[Function]}
         >
           <span>
             Dusseldorf

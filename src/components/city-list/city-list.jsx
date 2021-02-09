@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CityItem from '@/components/city-item/city-item';
 
 const CityList = (props) => {
-  const {cities, currentCity, onCurrentCityChange} = props;
+  const {cities, currentCity} = props;
 
   return (
     <div className="tabs">
@@ -15,7 +15,6 @@ const CityList = (props) => {
               key={city}
               city={city}
               isActive={city === currentCity}
-              onCurrentCityChange={onCurrentCityChange}
             />))}
         </ul>
       </section>
@@ -26,7 +25,6 @@ const CityList = (props) => {
 CityList.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentCity: PropTypes.string.isRequired,
-  onCurrentCityChange: PropTypes.func.isRequired
 };
 
 export default memo(CityList);
