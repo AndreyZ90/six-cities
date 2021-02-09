@@ -16,8 +16,6 @@ const Main = (props) => {
     offers,
     cities,
     currentCity,
-    onTitleClick,
-    onCurrentCityChange,
     currentSort,
     onCurrentSortChange,
     activeItem,
@@ -39,7 +37,6 @@ const Main = (props) => {
         <CityList
           cities={cities}
           currentCity={currentCity}
-          onCurrentCityChange={onCurrentCityChange}
         />
         <div className="cities">
           <div className="cities__places-container container">
@@ -47,7 +44,6 @@ const Main = (props) => {
               <Sort currentSort={currentSort} onCurrentSortChange={onCurrentSortChange} />
               <OfferListCities
                 offers={sortedOffers}
-                onTitleClick={onTitleClick}
                 onActiveCardChange={onActiveItemChange}
               />
             </Places>
@@ -89,10 +85,8 @@ Main.propTypes = {
       name: PropTypes.string.isRequired
     }).isRequired
   })).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentCity: PropTypes.string.isRequired,
-  onCurrentCityChange: PropTypes.func.isRequired,
   currentSort: PropTypes.oneOf(Object.values(SortType)).isRequired,
   onCurrentSortChange: PropTypes.func.isRequired,
   activeItem: PropTypes.number.isRequired,
