@@ -1,18 +1,15 @@
-import {createSelector} from 'reselect';
-
 const Selector = {
   getOffers: (state) => state.data.offerList,
   getCities: (state) => state.data.cityList,
   getCurrentCity: (state) => state.data.currentCity,
   getCurrentSort: (state) => state.data.currentSort,
   getLoading: (state) => state.app.loading,
-  getOffersByCurrentCity: createSelector(
-      (state) => state.data.offerList,
-      (state) => state.data.currentCity,
-      (offers, city) => offers.filter((offer) => offer.city.name === city)
-  ),
+  getOffersByCurrentCity: (state, currentCity) => state.data.offerList.filter((offer) => offer.city.name === currentCity),
   getEmail: (state) => state.user.email,
-  getAuthStatus: (state) => state.user.authStatus
+  getAuthStatus: (state) => state.user.authStatus,
+  getOfferById: (state, id) => state.data.offerList.find((offer) => offer.id === id),
+  getOffersNearby: (state) => state.data.offerNearbyList,
+  getReviews: (state) => state.data.reviewList
 };
 
 export default Selector;
