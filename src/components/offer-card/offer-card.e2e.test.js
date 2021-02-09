@@ -20,23 +20,6 @@ const offer = {
 };
 
 describe(`OfferCard e2e test`, () => {
-  test(`Should called fn onTitleClick once`, () => {
-    const onTitleClick = jest.fn();
-
-    const offerCardComponent = shallow(
-        <OfferCard
-          offer={offer}
-          onTitleClick={(onTitleClick)}
-          onActiveCardChange={() => {}}
-        />
-    );
-    const title = offerCardComponent.find(`.place-card__name`).at(0);
-
-    title.simulate(`click`);
-
-    expect(onTitleClick).toHaveBeenCalledTimes(1);
-  });
-
   test(`Should called fn onActiveCardChange with id`, () => {
     const onActiveCardChange = jest.fn();
 

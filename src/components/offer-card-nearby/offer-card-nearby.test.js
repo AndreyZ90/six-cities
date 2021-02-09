@@ -1,5 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import OfferCardNearby from '@/components/offer-card-nearby/offer-card-nearby';
 
@@ -17,11 +18,13 @@ const offer = {
 describe(`OfferCardNearby component snapshot`, () => {
   test(`Should correctly render OfferCardNearby component`, () => {
     const tree = TestRenderer.create(
-        <OfferCardNearby
-          offer={offer}
-          onTitleClick={() => {}}
-          onActiveCardChange={() => {}}
-        />
+        <Router>
+          <OfferCardNearby
+            offer={offer}
+            onTitleClick={() => {}}
+            onActiveCardChange={() => {}}
+          />
+        </Router>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
