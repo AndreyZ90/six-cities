@@ -30,34 +30,54 @@ exports[`Sort component snapshot Should correctly render Sort component 1`] = `
   <ul
     className="places__options places__options--custom "
   >
-    <li
-      className="places__option places__option--active"
+    <a
+      href="/amsterdam?sort=Popular"
       onClick={[Function]}
-      tabIndex={0}
     >
-      Popular
-    </li>
-    <li
-      className="places__option "
+      <li
+        className="places__option places__option--active"
+        onClick={[Function]}
+        tabIndex={0}
+      >
+        Popular
+      </li>
+    </a>
+    <a
+      href="/amsterdam?sort=Price: low to high"
       onClick={[Function]}
-      tabIndex={0}
     >
-      Price: low to high
-    </li>
-    <li
-      className="places__option "
+      <li
+        className="places__option "
+        onClick={[Function]}
+        tabIndex={0}
+      >
+        Price: low to high
+      </li>
+    </a>
+    <a
+      href="/amsterdam?sort=Price: high to low"
       onClick={[Function]}
-      tabIndex={0}
     >
-      Price: high to low
-    </li>
-    <li
-      className="places__option "
+      <li
+        className="places__option "
+        onClick={[Function]}
+        tabIndex={0}
+      >
+        Price: high to low
+      </li>
+    </a>
+    <a
+      href="/amsterdam?sort=Top rated first"
       onClick={[Function]}
-      tabIndex={0}
     >
-      Top rated first
-    </li>
+      <li
+        className="places__option "
+        onClick={[Function]}
+        tabIndex={0}
+      >
+        Top rated first
+      </li>
+    </a>
   </ul>
 </form>
 `;
