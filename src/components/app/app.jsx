@@ -21,8 +21,7 @@ const App = (props) => {
         <Route
           exact
           path={`${AppRoute.MAIN}:city?`}
-          render={({match}) => <Main currentCity={match.params.city} />}
-        />
+          render={({match, location}) => <Main currentCity={match.params.city} currentSort={location.search} />} />
         <Route
           exact
           path={`${AppRoute.OFFER}/:id`}
