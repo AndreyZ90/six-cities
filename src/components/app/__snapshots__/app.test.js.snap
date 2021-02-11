@@ -41,7 +41,8 @@ exports[`App component snapshot Should correctly render App component 1`] = `
             >
               <a
                 className="header__nav-link header__nav-link--profile"
-                href="#"
+                href="/favorites"
+                onClick={[Function]}
               >
                 <div
                   className="header__avatar-wrapper user__avatar-wrapper"
@@ -294,6 +295,7 @@ exports[`App component snapshot Should correctly render App component 1`] = `
                   </div>
                   <button
                     className="place-card__bookmark-button button place-card__bookmark-button--active"
+                    onClick={[Function]}
                     type="button"
                   >
                     <svg
@@ -390,6 +392,7 @@ exports[`App component snapshot Should correctly render App component 1`] = `
                   </div>
                   <button
                     className="place-card__bookmark-button button place-card__bookmark-button--active"
+                    onClick={[Function]}
                     type="button"
                   >
                     <svg

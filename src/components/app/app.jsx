@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 import Main from '@/containers/main/main';
 import OfferDetails from '@/containers/offer-details/offer-details';
 import SignIn from '@/containers/sign-in/sign-in';
+import Favorites from '@/containers/favorites/favorites';
 
 import {AppRoute, AuthStatus} from '@/helpers/const';
 
@@ -20,19 +21,24 @@ const App = (props) => {
       <Switch>
         <Route
           exact
+          path={AppRoute.LOGIN}
+          render={() => {
+            return authStatus === AuthStatus.NO_AUTH ? <SignIn /> : <Redirect to={AppRoute.MAIN} />;
+          }}
+        />
+        <Route
+          exact
+          path={AppRoute.FAVORITES}
+          render={() => <Favorites />}
+        />
+        <Route
+          exact
           path={`${AppRoute.MAIN}:city?`}
           render={({match, location}) => <Main currentCity={match.params.city} currentSort={location.search} />} />
         <Route
           exact
           path={`${AppRoute.OFFER}/:id`}
-          render={({match}) => <OfferDetails id={match.params.id} />}
-        />
-        <Route
-          exact
-          path={AppRoute.LOGIN}
-          render={() => {
-            return authStatus === AuthStatus.NO_AUTH ? <SignIn /> : <Redirect to={AppRoute.MAIN} />;
-          }}
+          render={({match}) => <OfferDetails id={Number(match.params.id)} />}
         />
       </Switch>
     </Router>
