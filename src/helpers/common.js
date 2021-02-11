@@ -39,8 +39,22 @@ const getOffersBySort = (offers, sortType) => {
   return offers;
 };
 
+const updateOfferList = (offer, offerList) => {
+  const index = offerList.findIndex(({id}) => id === offer.id);
+
+  if (index === -1) {
+    return offerList;
+  }
+
+  const before = offerList.slice(0, index);
+  const after = offerList.slice(index + 1);
+
+  return [...before, offer, ...after];
+};
+
 export {
   convertRatingToStyle,
   getGeoCoords,
-  getOffersBySort
+  getOffersBySort,
+  updateOfferList
 };
