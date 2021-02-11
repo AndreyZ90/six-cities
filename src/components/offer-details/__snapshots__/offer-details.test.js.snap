@@ -41,7 +41,8 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             >
               <a
                 className="header__nav-link header__nav-link--profile"
-                href="#"
+                href="/favorites"
+                onClick={[Function]}
               >
                 <div
                   className="header__avatar-wrapper user__avatar-wrapper"
@@ -149,6 +150,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
             </h1>
             <button
               className="property__bookmark-button button property__bookmark-button--active"
+              onClick={[Function]}
               type="button"
             >
               <svg
@@ -650,6 +652,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
                 </div>
                 <button
                   className="place-card__bookmark-button button place-card__bookmark-button--active"
+                  onClick={[Function]}
                   type="button"
                 >
                   <svg
@@ -753,6 +756,7 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
                 </div>
                 <button
                   className="place-card__bookmark-button button "
+                  onClick={[Function]}
                   type="button"
                 >
                   <svg

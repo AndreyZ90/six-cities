@@ -1,27 +1,31 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import {AppRoute} from '@/helpers/const';
+
 const SortItem = (props) => {
-  const {item, isActive, onCurrentSortChange, onFlagChange} = props;
+  const {item, isActive, onFlagChange, currentCity} = props;
 
   const activeClass = isActive ? `places__option--active` : ``;
 
   return (
-    <li
-      className={`places__option ${activeClass}`}
-      tabIndex={0}
-      onClick={() => {
-        onCurrentSortChange(item);
-        onFlagChange();
-      }}>
-      {item}
-    </li>);
+    <Link to={`${AppRoute.MAIN}${currentCity.toLowerCase()}?sort=${item}`}>
+      <li
+        className={`places__option ${activeClass}`}
+        tabIndex={0}
+        onClick={() => onFlagChange()}
+      >
+        {item}
+      </li>
+    </Link>
+  );
 };
 
 SortItem.propTypes = {
   item: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
-  onCurrentSortChange: PropTypes.func.isRequired,
+  currentCity: PropTypes.string.isRequired,
   onFlagChange: PropTypes.func.isRequired
 };
 

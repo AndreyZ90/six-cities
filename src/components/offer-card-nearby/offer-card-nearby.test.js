@@ -1,8 +1,18 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
+import configureMockStore from 'redux-mock-store';
 
 import OfferCardNearby from '@/components/offer-card-nearby/offer-card-nearby';
+
+const mockStore = configureMockStore([]);
+
+const store = mockStore({
+  user: {
+    authStatus: `AUTH`
+  }
+});
 
 const offer = {
   id: 1,
@@ -18,13 +28,15 @@ const offer = {
 describe(`OfferCardNearby component snapshot`, () => {
   test(`Should correctly render OfferCardNearby component`, () => {
     const tree = TestRenderer.create(
-        <Router>
-          <OfferCardNearby
-            offer={offer}
-            onTitleClick={() => {}}
-            onActiveCardChange={() => {}}
-          />
-        </Router>
+        <Provider store={store}>
+          <Router>
+            <OfferCardNearby
+              offer={offer}
+              onTitleClick={() => {}}
+              onActiveCardChange={() => {}}
+            />
+          </Router>
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

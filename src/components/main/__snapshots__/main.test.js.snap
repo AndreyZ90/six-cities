@@ -41,7 +41,8 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
             >
               <a
                 className="header__nav-link header__nav-link--profile"
-                href="#"
+                href="/favorites"
+                onClick={[Function]}
               >
                 <div
                   className="header__avatar-wrapper user__avatar-wrapper"
@@ -206,34 +207,54 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
             <ul
               className="places__options places__options--custom "
             >
-              <li
-                className="places__option places__option--active"
+              <a
+                href="/amsterdam?sort=Popular"
                 onClick={[Function]}
-                tabIndex={0}
               >
-                Popular
-              </li>
-              <li
-                className="places__option "
+                <li
+                  className="places__option places__option--active"
+                  onClick={[Function]}
+                  tabIndex={0}
+                >
+                  Popular
+                </li>
+              </a>
+              <a
+                href="/amsterdam?sort=Price: low to high"
                 onClick={[Function]}
-                tabIndex={0}
               >
-                Price: low to high
-              </li>
-              <li
-                className="places__option "
+                <li
+                  className="places__option "
+                  onClick={[Function]}
+                  tabIndex={0}
+                >
+                  Price: low to high
+                </li>
+              </a>
+              <a
+                href="/amsterdam?sort=Price: high to low"
                 onClick={[Function]}
-                tabIndex={0}
               >
-                Price: high to low
-              </li>
-              <li
-                className="places__option "
+                <li
+                  className="places__option "
+                  onClick={[Function]}
+                  tabIndex={0}
+                >
+                  Price: high to low
+                </li>
+              </a>
+              <a
+                href="/amsterdam?sort=Top rated first"
                 onClick={[Function]}
-                tabIndex={0}
               >
-                Top rated first
-              </li>
+                <li
+                  className="places__option "
+                  onClick={[Function]}
+                  tabIndex={0}
+                >
+                  Top rated first
+                </li>
+              </a>
             </ul>
           </form>
           <div
@@ -287,6 +308,7 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
                   </div>
                   <button
                     className="place-card__bookmark-button button place-card__bookmark-button--active"
+                    onClick={[Function]}
                     type="button"
                   >
                     <svg
@@ -383,6 +405,7 @@ exports[`Main component snapshot Should correctly render Main component 1`] = `
                   </div>
                   <button
                     className="place-card__bookmark-button button place-card__bookmark-button--active"
+                    onClick={[Function]}
                     type="button"
                   >
                     <svg

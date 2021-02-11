@@ -7,7 +7,7 @@ import Selector from '@/store/selectors/selector';
 
 const mapStateToProps = (state, {id}) => {
   return {
-    offer: Selector.getOfferById(state, Number(id)),
+    offer: Selector.getOfferById(state, id),
     nearby: Selector.getOffersNearby(state),
     reviews: Selector.getReviews(state)
   };

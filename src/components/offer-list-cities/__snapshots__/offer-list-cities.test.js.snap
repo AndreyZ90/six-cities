@@ -52,6 +52,7 @@ exports[`OfferListCities component snapshot Should correctly render OfferListCit
         </div>
         <button
           className="place-card__bookmark-button button place-card__bookmark-button--active"
+          onClick={[Function]}
           type="button"
         >
           <svg
@@ -148,6 +149,7 @@ exports[`OfferListCities component snapshot Should correctly render OfferListCit
         </div>
         <button
           className="place-card__bookmark-button button place-card__bookmark-button--active"
+          onClick={[Function]}
           type="button"
         >
           <svg

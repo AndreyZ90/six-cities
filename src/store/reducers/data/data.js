@@ -1,6 +1,7 @@
 import ActionType from '@/store/actions/const';
 
 import {SortType} from '@/helpers/const';
+import {updateOfferList} from '@/helpers/common';
 
 const initialState = {
   offerList: [],
@@ -22,6 +23,12 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {offerNearbyList: action.payload});
     case ActionType.FETCH_REVIEWS_SUCCESS:
       return Object.assign({}, state, {reviewList: action.payload});
+    case ActionType.FETCH_FAVORITES_SUCCESS:
+      const offer = action.payload;
+      const offerList = updateOfferList(offer, state.offerList);
+      const offerNearbyList = updateOfferList(offer, state.offerNearbyList);
+
+      return Object.assign({}, state, {offerList, offerNearbyList});
   }
 
   return state;

@@ -1,8 +1,18 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
+import configureMockStore from 'redux-mock-store';
 
 import OfferListCities from '@/components/offer-list-cities/offer-list-cities';
+
+const mockStore = configureMockStore([]);
+
+const store = mockStore({
+  user: {
+    authStatus: `AUTH`
+  }
+});
 
 const offers = [
   {
@@ -30,11 +40,13 @@ const offers = [
 describe(`OfferListCities component snapshot`, () => {
   test(`Should correctly render OfferListCities component`, () => {
     const tree = TestRenderer.create(
-        <Router>
-          <OfferListCities
-            offers={offers}
-          />
-        </Router>
+        <Provider store={store}>
+          <Router>
+            <OfferListCities
+              offers={offers}
+            />
+          </Router>
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

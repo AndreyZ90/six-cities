@@ -17,7 +17,6 @@ const Main = (props) => {
     cities,
     currentCity,
     currentSort,
-    onCurrentSortChange,
     activeItem,
     onActiveItemChange
   } = props;
@@ -41,7 +40,7 @@ const Main = (props) => {
         <div className="cities">
           <div className="cities__places-container container">
             <Places count={sortedOffers.length} currentCity={currentCity}>
-              <Sort currentSort={currentSort} onCurrentSortChange={onCurrentSortChange} />
+              <Sort currentSort={currentSort} currentCity={currentCity} />
               <OfferListCities
                 offers={sortedOffers}
                 onActiveCardChange={onActiveItemChange}
@@ -88,7 +87,6 @@ Main.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentCity: PropTypes.string.isRequired,
   currentSort: PropTypes.oneOf(Object.values(SortType)).isRequired,
-  onCurrentSortChange: PropTypes.func.isRequired,
   activeItem: PropTypes.number.isRequired,
   onActiveItemChange: PropTypes.func.isRequired
 };

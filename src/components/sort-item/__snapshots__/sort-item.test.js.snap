@@ -1,21 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SortItem component snapshot Should correctly render SortItem component (active) 1`] = `
-<li
-  className="places__option places__option--active"
+<a
+  href="/amsterdam?sort=Popular"
   onClick={[Function]}
-  tabIndex={0}
 >
-  Popular
-</li>
+  <li
+    className="places__option places__option--active"
+    onClick={[Function]}
+    tabIndex={0}
+  >
+    Popular
+  </li>
+</a>
 `;
 
 exports[`SortItem component snapshot Should correctly render SortItem component (not active) 1`] = `
-<li
-  className="places__option "
+<a
+  href="/amsterdam?sort=Popular"
   onClick={[Function]}
-  tabIndex={0}
 >
-  Popular
-</li>
+  <li
+    className="places__option "
+    onClick={[Function]}
+    tabIndex={0}
+  >
+    Popular
+  </li>
+</a>
 `;

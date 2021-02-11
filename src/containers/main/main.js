@@ -5,25 +5,24 @@ import Main from '@/components/main/main';
 
 import withActiveItem from '@/HOCs/with-active-item/with-active-item';
 
-import ActionCreator from '@/store/actions/creator';
 import Selector from '@/store/selectors/selector';
 
-const mapStateToProps = (state, {currentCity}) => {
+import {SortType} from '@/helpers/const';
+
+const mapStateToProps = (state, {currentCity, currentSort}) => {
   const city = currentCity ? `${currentCity[0].toUpperCase()}${currentCity.slice(1)}` : Selector.getCities(state)[0];
+  const searchParams = new URLSearchParams(currentSort);
+  const sort = searchParams.get(`sort`) || SortType.POPULAR;
 
   return {
     cities: Selector.getCities(state),
     currentCity: city,
-    currentSort: Selector.getCurrentSort(state),
+    currentSort: sort,
     offers: Selector.getOffersByCurrentCity(state, city)
   };
 };
 
-const mapDispatchToProps = {
-  onCurrentSortChange: ActionCreator.setCurrentSort
-};
-
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    connect(mapStateToProps),
     withActiveItem
 )(Main);

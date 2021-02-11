@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import BookmarkButton from '@/components/bookmark-button/bookmark-button';
+import BookmarkButton from '@/containers/bookmark-button/bookmark-button';
 
 import {ClassPrefix} from '@/helpers/const';
 
@@ -10,7 +10,8 @@ const BookmarkButtonDetails = (props) => {
 };
 
 BookmarkButtonDetails.propTypes = {
-  isActive: PropTypes.bool.isRequired
+  isActive: PropTypes.bool.isRequired,
+  id: PropTypes.number.isRequired
 };
 
 export default BookmarkButtonDetails;

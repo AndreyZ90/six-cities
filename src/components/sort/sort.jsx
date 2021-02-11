@@ -8,7 +8,7 @@ import withActiveFlag from '@/HOCs/with-active-flag/with-active-flag';
 import {SortType} from '@/helpers/const';
 
 const Sort = (props) => {
-  const {currentSort, onCurrentSortChange, isActiveFlag, onFlagChange} = props;
+  const {currentSort, isActiveFlag, currentCity, onFlagChange} = props;
 
   const activeClass = isActiveFlag ? `places__options--opened` : ``;
 
@@ -27,7 +27,7 @@ const Sort = (props) => {
             key={item}
             item={item}
             isActive={currentSort === item}
-            onCurrentSortChange={onCurrentSortChange}
+            currentCity={currentCity}
             onFlagChange={onFlagChange}
           />
         ))}
@@ -38,8 +38,8 @@ const Sort = (props) => {
 
 Sort.propTypes = {
   currentSort: PropTypes.oneOf(Object.values(SortType)).isRequired,
-  onCurrentSortChange: PropTypes.func.isRequired,
   isActiveFlag: PropTypes.bool.isRequired,
+  currentCity: PropTypes.string.isRequired,
   onFlagChange: PropTypes.func.isRequired
 };
 

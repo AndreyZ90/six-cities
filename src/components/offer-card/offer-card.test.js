@@ -1,8 +1,18 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
+import configureMockStore from 'redux-mock-store';
 
 import OfferCard from '@/components/offer-card/offer-card';
+
+const mockStore = configureMockStore([]);
+
+const store = mockStore({
+  user: {
+    authStatus: `AUTH`
+  }
+});
 
 const offer = {
   id: 1,
@@ -18,12 +28,14 @@ const offer = {
 describe(`OfferCard component snapshot`, () => {
   test(`Should correctly render OfferCard component`, () => {
     const tree = TestRenderer.create(
-        <Router>
-          <OfferCard
-            offer={offer}
-            onActiveCardChange={() => {}}
-          />
-        </Router>
+        <Provider store={store}>
+          <Router>
+            <OfferCard
+              offer={offer}
+              onActiveCardChange={() => {}}
+            />
+          </Router>
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

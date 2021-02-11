@@ -1,10 +1,20 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
+import configureMockStore from 'redux-mock-store';
 
 import OfferList from '@/components/offer-list/offer-list';
 
 import {ClassPrefix} from '@/helpers/const';
+
+const mockStore = configureMockStore([]);
+
+const store = mockStore({
+  user: {
+    authStatus: `AUTH`
+  }
+});
 
 const offers = [
   {
@@ -32,38 +42,44 @@ const offers = [
 describe(`OfferList component snapshot`, () => {
   test(`Should correctly render OfferList component (default)`, () => {
     const tree = TestRenderer.create(
-        <Router>
-          <OfferList
-            offers={offers}
-            onActiveCardChange={() => {}}
-          />
-        </Router>
+        <Provider store={store}>
+          <Router>
+            <OfferList
+              offers={offers}
+              onActiveCardChange={() => {}}
+            />
+          </Router>
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test(`Should correctly render OfferList component (with prefix CITY)`, () => {
     const tree = TestRenderer.create(
-        <Router>
-          <OfferList
-            offers={offers}
-            classPrefix={ClassPrefix.CITY}
-            onActiveCardChange={() => {}}
-          />
-        </Router>
+        <Provider store={store}>
+          <Router>
+            <OfferList
+              offers={offers}
+              classPrefix={ClassPrefix.CITY}
+              onActiveCardChange={() => {}}
+            />
+          </Router>
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test(`Should correctly render OfferList component (with prefix NEARBY)`, () => {
     const tree = TestRenderer.create(
-        <Router>
-          <OfferList
-            offers={offers}
-            classPrefix={ClassPrefix.NEARBY}
-            onActiveCardChange={() => {}}
-          />
-        </Router>
+        <Provider store={store}>
+          <Router>
+            <OfferList
+              offers={offers}
+              classPrefix={ClassPrefix.NEARBY}
+              onActiveCardChange={() => {}}
+            />
+          </Router>
+        </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
