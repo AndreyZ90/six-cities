@@ -51,6 +51,7 @@ export default class OfferDetails extends PureComponent {
       },
       reviews = [],
       nearby = [],
+      id
     } = this.props;
 
     const geoCoords = getGeoCoords(nearby);
@@ -71,7 +72,7 @@ export default class OfferDetails extends PureComponent {
                   <h1 className="property__name">
                     {title}
                   </h1>
-                  <BookmarkButtonDetails isActive={isFavorite} />
+                  <BookmarkButtonDetails isActive={isFavorite} id={id} />
                 </div>
                 <RatingDetails rating={rating} />
                 <FeatureList
