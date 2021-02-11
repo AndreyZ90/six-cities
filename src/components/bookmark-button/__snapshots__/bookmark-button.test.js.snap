@@ -3,6 +3,7 @@
 exports[`BookmarkButton component snapshot Should correctly render BookmarkButton component (active) 1`] = `
 <button
   className="place-card__bookmark-button button place-card__bookmark-button--active"
+  onClick={[Function]}
   type="button"
 >
   <svg
@@ -25,6 +26,7 @@ exports[`BookmarkButton component snapshot Should correctly render BookmarkButto
 exports[`BookmarkButton component snapshot Should correctly render BookmarkButton component (default) 1`] = `
 <button
   className="place-card__bookmark-button button place-card__bookmark-button--active"
+  onClick={[Function]}
   type="button"
 >
   <svg
@@ -47,6 +49,7 @@ exports[`BookmarkButton component snapshot Should correctly render BookmarkButto
 exports[`BookmarkButton component snapshot Should correctly render BookmarkButton component (not active) 1`] = `
 <button
   className="place-card__bookmark-button button "
+  onClick={[Function]}
   type="button"
 >
   <svg
@@ -69,6 +72,7 @@ exports[`BookmarkButton component snapshot Should correctly render BookmarkButto
 exports[`BookmarkButton component snapshot Should correctly render BookmarkButton component (with prefix CARD) 1`] = `
 <button
   className="place-card__bookmark-button button place-card__bookmark-button--active"
+  onClick={[Function]}
   type="button"
 >
   <svg
@@ -91,6 +95,7 @@ exports[`BookmarkButton component snapshot Should correctly render BookmarkButto
 exports[`BookmarkButton component snapshot Should correctly render BookmarkButton component (with prefix DETAILS) 1`] = `
 <button
   className="property__bookmark-button button property__bookmark-button--active"
+  onClick={[Function]}
   type="button"
 >
   <svg
