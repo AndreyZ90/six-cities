@@ -50,6 +50,11 @@ const ActionCreator = {
     type: ActionType.FETCH_REVIEWS_SUCCESS,
     payload
   }),
+
+  fetchFavotiresSuccess: (payload) => ({
+    type: ActionType.FETCH_FAVORITES_SUCCESS,
+    payload
+  }),
 };
 
 export default ActionCreator;

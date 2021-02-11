@@ -47,6 +47,17 @@ const Operation = {
 
         return reviews;
       });
+  },
+
+  fetchFavoritesRequest: (id, status) => (dispatch, _getState, api) => {
+    return api.post(`favorite/${id}/${status}`)
+      .then(({data}) => {
+        const offer = Adapter.offer(data);
+
+        dispatch(ActionCreator.fetchFavotiresSuccess(offer));
+
+        return offer;
+      });
   }
 };
 
