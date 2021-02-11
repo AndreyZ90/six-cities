@@ -3,6 +3,7 @@
 exports[`BookmarkButtonDetails component snapshot Should correctly render BookmarkButtonDetails component (active) 1`] = `
 <button
   className="property__bookmark-button button property__bookmark-button--active"
+  onClick={[Function]}
   type="button"
 >
   <svg
@@ -25,6 +26,7 @@ exports[`BookmarkButtonDetails component snapshot Should correctly render Bookma
 exports[`BookmarkButtonDetails component snapshot Should correctly render BookmarkButtonDetails component (not active) 1`] = `
 <button
   className="property__bookmark-button button "
+  onClick={[Function]}
   type="button"
 >
   <svg

@@ -37,7 +37,7 @@ const OfferCard = (props) => {
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <PriceCard price={price} />
-          <BookmarkButtonCard isActive={isFavorite} />
+          <BookmarkButtonCard isActive={isFavorite} id={id} />
         </div>
         <RatingCard rating={rating} />
         <h2 className="place-card__name">

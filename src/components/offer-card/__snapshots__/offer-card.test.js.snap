@@ -49,6 +49,7 @@ exports[`OfferCard component snapshot Should correctly render OfferCard componen
       </div>
       <button
         className="place-card__bookmark-button button place-card__bookmark-button--active"
+        onClick={[Function]}
         type="button"
       >
         <svg
