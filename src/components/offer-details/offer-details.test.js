@@ -164,6 +164,7 @@ describe(`OfferDetails component snapshot`, () => {
               nearby={nearby}
               id={id}
               fetchData={() => {}}
+              authStatus={`AUTH`}
             />
           </Router>
         </Provider>

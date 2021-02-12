@@ -9,7 +9,8 @@ const mapStateToProps = (state, {id}) => {
   return {
     offer: Selector.getOfferById(state, id),
     nearby: Selector.getOffersNearby(state),
-    reviews: Selector.getReviews(state)
+    reviews: Selector.getReviews(state),
+    authStatus: Selector.getAuthStatus(state)
   };
 };
 

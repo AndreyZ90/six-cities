@@ -18,7 +18,7 @@ import MapDetails from '@/components/map-details/map-details';
 import Nearby from '@/components/nearby/nearby';
 import OfferListNearby from '@/components/offer-list-nearby/offer-list-nearby';
 
-import {HouseType} from '@/helpers/const';
+import {AuthStatus, HouseType} from '@/helpers/const';
 import {getGeoCoords} from '@/helpers/common';
 
 export default class OfferDetails extends PureComponent {
@@ -51,7 +51,8 @@ export default class OfferDetails extends PureComponent {
       },
       reviews = [],
       nearby = [],
-      id
+      id,
+      authStatus
     } = this.props;
 
     const geoCoords = getGeoCoords(nearby);
@@ -87,7 +88,7 @@ export default class OfferDetails extends PureComponent {
                 <Host host={host} description={description} />
                 <Review count={reviews.length}>
                   <ReviewList reviews={reviews} />
-                  <ReviewForm />
+                  {authStatus === AuthStatus.AUTH ? <ReviewForm /> : null}
                 </Review>
               </div>
             </div>
@@ -163,6 +164,7 @@ OfferDetails.propTypes = {
     }).isRequired,
   })).isRequired,
   fetchData: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired
+  id: PropTypes.number.isRequired,
+  authStatus: PropTypes.oneOf(Object.values(AuthStatus)).isRequired
 };
 
