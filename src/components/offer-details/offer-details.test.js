@@ -163,7 +163,9 @@ describe(`OfferDetails component snapshot`, () => {
               reviews={reviews}
               nearby={nearby}
               id={id}
+              authStatus={`AUTH`}
               fetchData={() => {}}
+              onFormSubmit={() => {}}
             />
           </Router>
         </Provider>

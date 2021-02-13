@@ -29,6 +29,8 @@ const reducer = (state = initialState, action) => {
       const offerNearbyList = updateOfferList(offer, state.offerNearbyList);
 
       return Object.assign({}, state, {offerList, offerNearbyList});
+    case ActionType.FETCH_ADD_REVIEW_SUCCESS:
+      return Object.assign({}, state, {reviewList: action.payload});
   }
 
   return state;

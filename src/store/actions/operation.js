@@ -58,6 +58,17 @@ const Operation = {
 
         return offer;
       });
+  },
+
+  fetchAddReviewRequest: (id, review) => (dispatch, _getState, api) => {
+    return api.post(`comments/${id}`, review)
+      .then(({data}) => {
+        const reviews = Adapter.reviews(data);
+
+        dispatch(ActionCreator.fetchAddReviewSuccess(reviews));
+
+        return reviews;
+      });
   }
 };
 
