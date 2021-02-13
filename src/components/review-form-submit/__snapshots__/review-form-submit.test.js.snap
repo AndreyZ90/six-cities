@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewFormSubmit component snapshot Should correctly render ReviewFormSubmit component (active) 1`] = `
+<div
+  className="reviews__button-wrapper"
+>
+  <p
+    className="reviews__help"
+  >
+    To submit review please make sure to set 
+    <span
+      className="reviews__star"
+    >
+      rating
+    </span>
+     and describe your stay with at least 
+    <b
+      className="reviews__text-amount"
+    >
+      50 characters
+    </b>
+    .
+  </p>
+  <button
+    className="reviews__submit form__submit button"
+    disabled={false}
+    type="submit"
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`ReviewFormSubmit component snapshot Should correctly render ReviewFormSubmit component (default) 1`] = `
+<div
+  className="reviews__button-wrapper"
+>
+  <p
+    className="reviews__help"
+  >
+    To submit review please make sure to set 
+    <span
+      className="reviews__star"
+    >
+      rating
+    </span>
+     and describe your stay with at least 
+    <b
+      className="reviews__text-amount"
+    >
+      50 characters
+    </b>
+    .
+  </p>
+  <button
+    className="reviews__submit form__submit button"
+    disabled={true}
+    type="submit"
+  >
+    Submit
+  </button>
+</div>
+`;
