@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withValidationForm HOC snapshot Should correctly render withValidationForm HOC 1`] = `
+<div
+  className="wrapped-component"
+>
+  Wrapped Component
+</div>
+`;
