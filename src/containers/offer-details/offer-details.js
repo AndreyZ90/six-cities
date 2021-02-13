@@ -19,7 +19,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchData: (id) => {
       dispatch(Operation.fetchOffersNearbyRequest(id));
       dispatch(Operation.fetchReviewsRequest(id));
-    }
+    },
+    onFormSubmit: (...args) => dispatch(Operation.fetchAddReviewRequest(...args))
   };
 };
 
