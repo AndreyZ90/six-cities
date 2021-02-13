@@ -52,7 +52,8 @@ export default class OfferDetails extends PureComponent {
       reviews = [],
       nearby = [],
       id,
-      authStatus
+      authStatus,
+      onFormSubmit
     } = this.props;
 
     const geoCoords = getGeoCoords(nearby);
@@ -88,7 +89,7 @@ export default class OfferDetails extends PureComponent {
                 <Host host={host} description={description} />
                 <Review count={reviews.length}>
                   <ReviewList reviews={reviews} />
-                  {authStatus === AuthStatus.AUTH ? <ReviewForm /> : null}
+                  {authStatus === AuthStatus.AUTH ? <ReviewForm id={id} onFormSubmit={onFormSubmit} /> : null}
                 </Review>
               </div>
             </div>
@@ -165,6 +166,7 @@ OfferDetails.propTypes = {
   })).isRequired,
   fetchData: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
-  authStatus: PropTypes.oneOf(Object.values(AuthStatus)).isRequired
+  authStatus: PropTypes.oneOf(Object.values(AuthStatus)).isRequired,
+  onFormSubmit: PropTypes.func.isRequired
 };
 
