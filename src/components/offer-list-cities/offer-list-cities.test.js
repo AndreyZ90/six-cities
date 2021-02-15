@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
 import configureMockStore from 'redux-mock-store';
 
 import OfferListCities from '@/components/offer-list-cities/offer-list-cities';
@@ -41,11 +41,11 @@ describe(`OfferListCities component snapshot`, () => {
   test(`Should correctly render OfferListCities component`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter>
             <OfferListCities
               offers={offers}
             />
-          </Router>
+          </MemoryRouter>
         </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();

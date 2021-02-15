@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
 import configureMockStore from 'redux-mock-store';
 
 const mockStore = configureMockStore([]);
@@ -18,9 +18,9 @@ describe(`BookmarkButtonCard component snapshot`, () => {
   test(`Should correctly render BookmarkButtonCard component (active)`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter>
             <BookmarkButtonCard isActive={true} id={10} />
-          </Router>
+          </MemoryRouter>
         </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -29,9 +29,9 @@ describe(`BookmarkButtonCard component snapshot`, () => {
   test(`Should correctly render BookmarkButtonCard component (not active)`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter>
             <BookmarkButtonCard isActive={false} id={10} />
-          </Router>
+          </MemoryRouter>
         </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();

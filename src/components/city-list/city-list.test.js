@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
 
 import CityList from '@/components/city-list/city-list';
 
@@ -10,9 +10,9 @@ const currentCity = `Amsterdam`;
 describe(`CityList component snapshot`, () => {
   test(`Should correctly render CityList component`, () => {
     const tree = TestRenderer.create(
-        <Router>
+        <MemoryRouter>
           <CityList cities={cities} currentCity={currentCity} />
-        </Router>
+        </MemoryRouter>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

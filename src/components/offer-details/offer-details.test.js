@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 import leaflet from 'leaflet';
@@ -157,7 +157,7 @@ describe(`OfferDetails component snapshot`, () => {
   test(`Should correctly render OfferDetails component`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter>
             <OfferDetails
               offer={offer}
               reviews={reviews}
@@ -167,7 +167,7 @@ describe(`OfferDetails component snapshot`, () => {
               fetchData={() => {}}
               onFormSubmit={() => {}}
             />
-          </Router>
+          </MemoryRouter>
         </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();

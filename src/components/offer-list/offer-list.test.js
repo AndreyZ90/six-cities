@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
 import configureMockStore from 'redux-mock-store';
 
 import OfferList from '@/components/offer-list/offer-list';
@@ -43,12 +43,12 @@ describe(`OfferList component snapshot`, () => {
   test(`Should correctly render OfferList component (default)`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter>
             <OfferList
               offers={offers}
               onActiveCardChange={() => {}}
             />
-          </Router>
+          </MemoryRouter>
         </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -57,13 +57,13 @@ describe(`OfferList component snapshot`, () => {
   test(`Should correctly render OfferList component (with prefix CITY)`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter>
             <OfferList
               offers={offers}
               classPrefix={ClassPrefix.CITY}
               onActiveCardChange={() => {}}
             />
-          </Router>
+          </MemoryRouter>
         </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -72,13 +72,13 @@ describe(`OfferList component snapshot`, () => {
   test(`Should correctly render OfferList component (with prefix NEARBY)`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter>
             <OfferList
               offers={offers}
               classPrefix={ClassPrefix.NEARBY}
               onActiveCardChange={() => {}}
             />
-          </Router>
+          </MemoryRouter>
         </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();

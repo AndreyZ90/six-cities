@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
 import Main from '@/containers/main/main';
 import OfferDetails from '@/containers/offer-details/offer-details';
@@ -17,7 +17,7 @@ const App = (props) => {
   }
 
   return (
-    <Router>
+    <BrowserRouter>
       <Switch>
         <Route
           exact
@@ -41,7 +41,7 @@ const App = (props) => {
           render={({match}) => <OfferDetails id={Number(match.params.id)} />}
         />
       </Switch>
-    </Router>
+    </BrowserRouter>
   );
 };
 
