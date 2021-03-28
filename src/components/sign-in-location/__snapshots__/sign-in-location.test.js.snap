@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInLocation component snapshot Should correctly render SignInLocation component 1`] = `
+<section
+  className="locations locations--login locations--current"
+>
+  <div
+    className="locations__item"
+  >
+    <a
+      className="locations__item-link"
+      href="/amsterdam"
+      onClick={[Function]}
+    >
+      <span>
+        Amsterdam
+      </span>
+    </a>
+  </div>
+</section>
+`;
