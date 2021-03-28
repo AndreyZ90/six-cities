@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInForm component snapshot Should correctly render SignInForm component 1`] = `
+<form
+  action="#"
+  className="login__form form"
+  method="post"
+  onSubmit={[Function]}
+>
+  <div
+    className="some-children-node"
+  >
+    Inside children node
+  </div>
+  <button
+    className="login__submit form__submit button"
+    type="submit"
+  >
+    Sign in
+  </button>
+</form>
+`;
