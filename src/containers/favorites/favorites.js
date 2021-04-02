@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import Favorites from '@/components/favorites/favorites';
+import FavoritesPage from '@/pages/favorites-page/favorites-page';
 
 import Selector from '@/store/selectors/selector';
 
@@ -10,4 +10,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Favorites);
+export default connect(mapStateToProps)(FavoritesPage);

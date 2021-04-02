@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 
-import Main from '@/components/main/main';
+import MainPage from '@/pages/main-page/main-page';
 
 import withActiveItem from '@/HOCs/with-active-item/with-active-item';
 
@@ -25,4 +25,4 @@ const mapStateToProps = (state, {currentCity, currentSort}) => {
 export default compose(
     connect(mapStateToProps),
     withActiveItem
-)(Main);
+)(MainPage);
