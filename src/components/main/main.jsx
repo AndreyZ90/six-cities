@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from '@/containers/header/header';
-import CityList from '@/components/city-list/city-list';
 import Places from '@/components/places/places';
 import Sort from '@/components/sort/sort';
 import OfferListCities from '@/components/offer-list-cities/offer-list-cities';
@@ -14,7 +12,6 @@ import {getGeoCoords, getOffersBySort} from '@/helpers/common';
 const Main = (props) => {
   const {
     offers,
-    cities,
     currentCity,
     currentSort,
     activeItem,
@@ -29,34 +26,24 @@ const Main = (props) => {
   const sortedOffers = getOffersBySort(offers, currentSort);
 
   return (
-    <div className="page page--gray page--main">
-      <Header />
-      <main className="page__main page__main--index">
-        <h1 className="visually-hidden">Cities</h1>
-        <CityList
-          cities={cities}
-          currentCity={currentCity}
-        />
-        <div className="cities">
-          <div className="cities__places-container container">
-            <Places count={sortedOffers.length} currentCity={currentCity}>
-              <Sort currentSort={currentSort} currentCity={currentCity} />
-              <OfferListCities
-                offers={sortedOffers}
-                onActiveCardChange={onActiveItemChange}
-              />
-            </Places>
-            <div className="cities__right-section">
-              <MapCities
-                geoCoords={geoCoords}
-                activeGeoCoords={activeGeoCoords}
-                center={cityCoords}
-                zoom={zoom}
-              />
-            </div>
-          </div>
+    <div className="cities">
+      <div className="cities__places-container container">
+        <Places count={sortedOffers.length} currentCity={currentCity}>
+          <Sort currentSort={currentSort} currentCity={currentCity} />
+          <OfferListCities
+            offers={sortedOffers}
+            onActiveCardChange={onActiveItemChange}
+          />
+        </Places>
+        <div className="cities__right-section">
+          <MapCities
+            geoCoords={geoCoords}
+            activeGeoCoords={activeGeoCoords}
+            center={cityCoords}
+            zoom={zoom}
+          />
         </div>
-      </main>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPageButton component snapshot Should correctly render NotFoundPageButton component 1`] = `
+<button
+  className="page-not-found__button"
+>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    go to the main page
+  </a>
+</button>
+`;

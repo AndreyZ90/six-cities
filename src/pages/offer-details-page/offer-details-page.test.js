@@ -1,15 +1,21 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 import leaflet from 'leaflet';
 
-import OfferDetails from '@/components/offer-details/offer-details';
+import OfferDetailsPage from '@/pages/offer-details-page/offer-details-page';
 
 leaflet.map = () => {};
 
 const mockStore = configureStore([]);
+const store = mockStore({
+  user: {
+    email: `test@gmail.com`,
+    authStatus: `AUTH`
+  }
+});
 
 const offer = {
   id: 1,
@@ -146,29 +152,43 @@ const nearby = [
 
 const id = 1;
 
-const store = mockStore({
-  user: {
-    email: `test@gmail.com`,
-    authStatus: `AUTH`
-  }
-});
+const authStatus = `AUTH`;
 
-describe(`OfferDetails component snapshot`, () => {
-  test(`Should correctly render OfferDetails component`, () => {
+describe(`OfferDetailsPage component snapshot`, () => {
+  test(`Should correctly render OfferDetailsPage component (default)`, () => {
     const tree = TestRenderer.create(
-        <Provider store={store}>
-          <Router>
-            <OfferDetails
+        <MemoryRouter>
+          <Provider store={store}>
+            <OfferDetailsPage
               offer={offer}
               reviews={reviews}
               nearby={nearby}
+              authStatus={authStatus}
               id={id}
-              authStatus={`AUTH`}
               fetchData={() => {}}
               onFormSubmit={() => {}}
             />
-          </Router>
-        </Provider>
+          </Provider>
+        </MemoryRouter>
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test(`Should correctly render OfferDetailsPage component (empty)`, () => {
+    const tree = TestRenderer.create(
+        <MemoryRouter>
+          <Provider store={store}>
+            <OfferDetailsPage
+              offer={{}}
+              reviews={reviews}
+              nearby={nearby}
+              authStatus={authStatus}
+              id={id}
+              fetchData={() => {}}
+              onFormSubmit={() => {}}
+            />
+          </Provider>
+        </MemoryRouter>
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

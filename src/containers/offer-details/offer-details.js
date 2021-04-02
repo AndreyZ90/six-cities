@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import OfferDetails from '@/components/offer-details/offer-details';
+import OfferDetailsPage from '@/pages/offer-details-page/offer-details-page';
 
 import Operation from '@/store/actions/operation';
 import Selector from '@/store/selectors/selector';
@@ -24,4 +24,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OfferDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(OfferDetailsPage);

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OfferDetails component snapshot Should correctly render OfferDetails component 1`] = `
+exports[`OfferDetailsPage component snapshot Should correctly render OfferDetailsPage component (default) 1`] = `
 <div
   className="page"
 >
@@ -828,5 +828,36 @@ exports[`OfferDetails component snapshot Should correctly render OfferDetails co
       </section>
     </div>
   </main>
+</div>
+`;
+
+exports[`OfferDetailsPage component snapshot Should correctly render OfferDetailsPage component (empty) 1`] = `
+<div
+  className="page-not-found"
+>
+  <div
+    className="page-not-found__container"
+  >
+    <p
+      className="page-not-found__number"
+    >
+      404
+    </p>
+    <h1
+      className="page-not-found__title"
+    >
+      Page not found :(
+    </h1>
+    <button
+      className="page-not-found__button"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        go to the main page
+      </a>
+    </button>
+  </div>
 </div>
 `;

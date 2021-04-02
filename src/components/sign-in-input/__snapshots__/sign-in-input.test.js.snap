@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInInput component snapshot Should correctly render SignInInput component 1`] = `
+<div
+  className="login__input-wrapper form__input-wrapper"
+>
+  <label
+    className="visually-hidden"
+  >
+    Password
+  </label>
+  <input
+    className="login__input form__input"
+    name="password"
+    onChange={[Function]}
+    placeholder="Password"
+    required={true}
+    type="password"
+    value="test@gmail.com"
+  />
+</div>
+`;

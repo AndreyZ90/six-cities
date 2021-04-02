@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
+import NotFoundPage from '@/pages/not-found-page/not-found-page';
+
 import Header from '@/containers/header/header';
 import Gallery from '@/components/gallery/gallery';
 import PremiumMarkDetails from '@/components/premium-mark-details/premium-mark-details';
@@ -21,7 +23,7 @@ import OfferListNearby from '@/components/offer-list-nearby/offer-list-nearby';
 import {AuthStatus, HouseType} from '@/helpers/const';
 import {getGeoCoords} from '@/helpers/common';
 
-export default class OfferDetails extends PureComponent {
+export default class OfferDetailsPage extends PureComponent {
   componentDidMount() {
     this.props.fetchData(this.props.id);
   }
@@ -34,27 +36,33 @@ export default class OfferDetails extends PureComponent {
 
   render() {
     const {
-      offer: {
-        isFavorite,
-        isPremium,
-        price,
-        rating,
-        title,
-        type,
-        images,
-        bedrooms,
-        maxAdults,
-        goods,
-        host,
-        description,
-        city
-      },
+      offer = {},
       reviews = [],
       nearby = [],
       id,
       authStatus,
       onFormSubmit
     } = this.props;
+
+    if (Object.keys(offer).length === 0) {
+      return <NotFoundPage />;
+    }
+
+    const {
+      isFavorite,
+      isPremium,
+      price,
+      rating,
+      title,
+      type,
+      images,
+      bedrooms,
+      maxAdults,
+      goods,
+      host,
+      description,
+      city
+    } = offer;
 
     const geoCoords = getGeoCoords(nearby);
     const activeGeoCoords = getGeoCoords(this.props.offer);
@@ -111,32 +119,32 @@ export default class OfferDetails extends PureComponent {
   }
 }
 
-OfferDetails.propTypes = {
+OfferDetailsPage.propTypes = {
   offer: PropTypes.shape({
-    isFavorite: PropTypes.bool.isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    price: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(Object.keys(HouseType)).isRequired,
-    images: PropTypes.arrayOf(PropTypes.string).isRequired,
-    bedrooms: PropTypes.number.isRequired,
-    maxAdults: PropTypes.number.isRequired,
-    goods: PropTypes.arrayOf(PropTypes.string).isRequired,
+    isFavorite: PropTypes.bool,
+    isPremium: PropTypes.bool,
+    price: PropTypes.number,
+    rating: PropTypes.number,
+    title: PropTypes.string,
+    type: PropTypes.oneOf(Object.keys(HouseType)),
+    images: PropTypes.arrayOf(PropTypes.string),
+    bedrooms: PropTypes.number,
+    maxAdults: PropTypes.number,
+    goods: PropTypes.arrayOf(PropTypes.string),
     host: PropTypes.shape({
       avatarUrl: PropTypes.string.isRequired,
       isPro: PropTypes.bool.isRequired,
       name: PropTypes.string.isRequired
-    }).isRequired,
-    description: PropTypes.string.isRequired,
+    }),
+    description: PropTypes.string,
     city: PropTypes.shape({
       location: PropTypes.shape({
         latitude: PropTypes.number.isRequired,
         longitude: PropTypes.number.isRequired,
         zoom: PropTypes.number.isRequired
       }).isRequired
-    }).isRequired,
-  }).isRequired,
+    }),
+  }),
   reviews: PropTypes.arrayOf(PropTypes.shape({
     comment: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,

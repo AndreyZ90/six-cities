@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
 import configureMockStore from 'redux-mock-store';
 
 const offers = {
@@ -44,9 +44,9 @@ describe(`Favorites component snapshot`, () => {
   test(`Should correctly render Favorites component`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter>
             <Favorites offers={offers} />
-          </Router>
+          </MemoryRouter>
         </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();

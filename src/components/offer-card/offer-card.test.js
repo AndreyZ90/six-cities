@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
 import configureMockStore from 'redux-mock-store';
 
 import OfferCard from '@/components/offer-card/offer-card';
@@ -29,12 +29,12 @@ describe(`OfferCard component snapshot`, () => {
   test(`Should correctly render OfferCard component`, () => {
     const tree = TestRenderer.create(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter>
             <OfferCard
               offer={offer}
               onActiveCardChange={() => {}}
             />
-          </Router>
+          </MemoryRouter>
         </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
