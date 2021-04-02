@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SignInInput = (props) => {
-  const {type, label, onDataChange} = props;
+  const {type, label, value, onDataChange} = props;
 
   return (
     <div className="login__input-wrapper form__input-wrapper">
@@ -12,7 +12,7 @@ const SignInInput = (props) => {
         type={type} name={type}
         placeholder={label}
         required
-        value={type}
+        value={value}
         onChange={(evt) => onDataChange(evt.target.name, evt.target.value)}
       />
     </div>
@@ -22,7 +22,8 @@ const SignInInput = (props) => {
 SignInInput.propTypes = {
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  onDataChange: PropTypes.func.isRequired
+  onDataChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired
 };
 
 export default SignInInput;

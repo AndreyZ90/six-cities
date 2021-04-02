@@ -36,7 +36,7 @@ exports[`SignIn component snapshot Should correctly render SignIn component 1`] 
             placeholder="E-mail"
             required={true}
             type="email"
-            value="email"
+            value="test@gmail.com"
           />
         </div>
         <div
@@ -54,7 +54,7 @@ exports[`SignIn component snapshot Should correctly render SignIn component 1`] 
             placeholder="Password"
             required={true}
             type="password"
-            value="password"
+            value="qwerty"
           />
         </div>
         <button

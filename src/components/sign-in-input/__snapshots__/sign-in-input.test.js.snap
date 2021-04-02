@@ -16,7 +16,7 @@ exports[`SignInInput component snapshot Should correctly render SignInInput comp
     placeholder="Password"
     required={true}
     type="password"
-    value="password"
+    value="test@gmail.com"
   />
 </div>
 `;

@@ -5,6 +5,7 @@ import SignInInput from '@/components/sign-in-input/sign-in-input';
 
 const type = `password`;
 const label = `Password`;
+const value = `test@gmail.com`;
 
 describe(`SignInInput component snapshot`, () => {
   test(`Should correctly render SignInInput component`, () => {
@@ -12,6 +13,7 @@ describe(`SignInInput component snapshot`, () => {
         <SignInInput
           type={type}
           label={label}
+          value={value}
           onDataChange={() => {}}
         />
     ).toJSON();

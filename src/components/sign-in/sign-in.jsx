@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SignInForm from '../sign-in-form/sign-in-form';
-import SignInInput from '../sign-in-input/sign-in-input';
+import SignInForm from '@/components/sign-in-form/sign-in-form';
+import SignInInput from '@/components/sign-in-input/sign-in-input';
 import SignInLocation from '@/components/sign-in-location/sign-in-location';
 
 const SignIn = (props) => {
@@ -14,8 +14,8 @@ const SignIn = (props) => {
         <section className="login">
           <h1 className="login__title">Sign in</h1>
           <SignInForm email={email} password={password} onButtonSubmit={onButtonSubmit}>
-            <SignInInput type="email" label="E-mail" onDataChange={onDataChange} />
-            <SignInInput type="password" label="Password" onDataChange={onDataChange} />
+            <SignInInput type="email" label="E-mail" onDataChange={onDataChange} value={email} />
+            <SignInInput type="password" label="Password" onDataChange={onDataChange} value={password} />
           </SignInForm>
         </section>
         <SignInLocation city={city} />

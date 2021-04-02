@@ -2,10 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
-import Main from '@/containers/main/main';
-import OfferDetails from '@/containers/offer-details/offer-details';
-import SignIn from '@/containers/sign-in/sign-in';
-import Favorites from '@/containers/favorites/favorites';
+import Loading from '@/components/loading/loading';
+
+import MainPage from '@/containers/main/main';
+import OfferDetailsPage from '@/containers/offer-details/offer-details';
+import SignInPage from '@/containers/sign-in/sign-in';
+import FavoritesPage from '@/containers/favorites/favorites';
+import NotFoundPage from '@/pages/not-found-page/not-found-page';
 
 import {AppRoute, AuthStatus} from '@/helpers/const';
 
@@ -13,7 +16,7 @@ const App = (props) => {
   const {loading, authStatus} = props;
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
 
   return (
@@ -23,23 +26,24 @@ const App = (props) => {
           exact
           path={AppRoute.LOGIN}
           render={() => {
-            return authStatus === AuthStatus.NO_AUTH ? <SignIn /> : <Redirect to={AppRoute.MAIN} />;
+            return authStatus === AuthStatus.NO_AUTH ? <SignInPage /> : <Redirect to={AppRoute.MAIN} />;
           }}
         />
         <Route
           exact
           path={AppRoute.FAVORITES}
-          render={() => <Favorites />}
+          render={() => <FavoritesPage />}
         />
         <Route
           exact
           path={`${AppRoute.MAIN}:city?`}
-          render={({match, location}) => <Main currentCity={match.params.city} currentSort={location.search} />} />
+          render={({match, location}) => <MainPage currentCity={match.params.city} currentSort={location.search} />} />
         <Route
           exact
           path={`${AppRoute.OFFER}/:id`}
-          render={({match}) => <OfferDetails id={Number(match.params.id)} />}
+          render={({match}) => <OfferDetailsPage id={Number(match.params.id)} />}
         />
+        <Route render={() => <NotFoundPage />}/>
       </Switch>
     </BrowserRouter>
   );
